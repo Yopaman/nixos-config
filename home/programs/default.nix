@@ -7,5 +7,6 @@
     ./wofi
     ./fish
     ./starship
+    ./helix
   ];
 }
