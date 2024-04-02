@@ -18,6 +18,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.home-manager
   ];
 
   nixpkgs = {
@@ -62,8 +63,6 @@
     auto-optimise-store = true;
   };
 
-  # FIXME: Add the rest of your current configuration
-  
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Paris";
@@ -72,19 +71,42 @@
 
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
+  boot.loader.grub.efiSupport = true;
+  boot.loader.efi.efiSysMountPoint = "/boot";
+  boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.useOSProber = true;
+  
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+  console = {
+     font = "Lat2-Terminus16";
+     useXkbConfig = true; # use xkb.options in tty.
+  };
+
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+
+  # Configure keymap in X11
+  services.xserver.xkb.layout = "fr";
+  services.xserver.xkb.options = "eurosign:e,caps:escape";
+
+  # Sound configuration
+  sound.enable = true;
+  services.pipewire = {
+      enable = true;
+      alsa.enable = true;
+      pulse.enable = true;
+      jack.enable = true;
+  };
 
   users.users = {
     pablo = {
-      # TODO: You can set an initial password for your user.
-      # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
-      # Be sure to change it (using passwd) after rebooting!
       isNormalUser = true;
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
       # TODO: Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = ["wheel"];
+      extraGroups = ["wheel" "networkmanager" "audio" "rtkit"];
       packages = with pkgs; [
       	firefox
         alacritty
@@ -99,6 +121,8 @@
     vim
     wget
     curl
+    efibootmgr
+    git
   ];
 
   programs.hyprland.enable = true;
@@ -114,11 +138,6 @@
   #     PasswordAuthentication = false;
   #   };
   # };
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  system.copySystemConfiguration = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
