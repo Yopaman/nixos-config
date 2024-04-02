@@ -123,6 +123,7 @@
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Monaspace" ]; })
     font-awesome
+    roboto
   ];
 
 
