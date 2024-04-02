@@ -23,15 +23,25 @@
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
   home.packages = with pkgs; [ 
+    # Graphical Programs
     firefox
     alacritty
     wofi
     dolphin
+    discord
 
+    # Desktop
     swww
 
-    # programming languages 
+    # Editors 
+    helix
+
+    # Programming Languages 
     rustup
+
+    # Misc
+    fastfetch
+    nil
   ];
 
   # Enable home-manager and git

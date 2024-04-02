@@ -5,5 +5,7 @@
     ./waybar
     ./nvim
     ./wofi
+    ./fish
+    ./starship
   ];
 }
