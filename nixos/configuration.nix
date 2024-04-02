@@ -125,6 +125,7 @@
     git
     hyprland
     inotify-tools
+    killall
   ];
 
   fonts.packages = with pkgs; [

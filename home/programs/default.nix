@@ -4,5 +4,6 @@
     ./hyprland
     ./waybar
     ./nvim
+    ./wofi
   ];
 }
