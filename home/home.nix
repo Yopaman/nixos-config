@@ -32,6 +32,9 @@
 
     # Desktop
     swww
+    hypridle
+    hyprlock
+    swaynotificationcenter
 
     # Editors 
     helix
@@ -44,6 +47,7 @@
     nodejs_20
     zig
     python3
+    ccls
 
     # Misc
     fastfetch

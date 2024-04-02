@@ -8,5 +8,6 @@
     ./fish
     ./starship
     ./helix
+    ./swaync
   ];
 }
