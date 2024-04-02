@@ -1,0 +1,3 @@
+[submodule "home/programs/nvim/nvim-config"]
+	path = home/programs/nvim/nvim-config
+	url = https://github.com/Yopaman/nvim-config.git
