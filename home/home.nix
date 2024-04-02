@@ -38,10 +38,15 @@
 
     # Programming Languages 
     rustup
+    go
+    gopls
+    nil
+    nodejs_20
+    zig
+    python3
 
     # Misc
     fastfetch
-    nil
   ];
 
   # Enable home-manager and git
