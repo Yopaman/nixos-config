@@ -35,6 +35,7 @@
     hypridle
     hyprlock
     swaynotificationcenter
+    networkmanagerapplet
 
     # Editors 
     helix
