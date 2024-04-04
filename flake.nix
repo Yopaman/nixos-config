@@ -13,14 +13,16 @@
     # hardware.url = "github:nixos/nixos-hardware";
 
     # Shameless plug: looking for a way to nixify your themes and make
-    # everything match nicely? Try nix-colors!
-    # nix-colors.url = "github:misterio77/nix-colors";
+    nix-colors.url = "github:misterio77/nix-colors";
+
+    centerpiece.url = "github:friedow/centerpiece";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    nix-colors,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -38,7 +40,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.pablo = import ./home/home.nix;
-
+            home-manager.extraSpecialArgs = { inherit nix-colors; };
             # Optionally, use home-manager.extraSpecialArgs to pass
             # arguments to home.nix
           }

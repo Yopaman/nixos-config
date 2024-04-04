@@ -63,6 +63,8 @@
     auto-optimise-store = true;
   };
 
+  nix.settings.trusted-users = [ "root" "pablo" ];
+
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Paris";
@@ -194,10 +196,11 @@
     inotify-tools
     killall
     pamixer
+    libmpc
   ];
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Monaspace" ]; })
+    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Monaspace" "Noto" ]; })
     font-awesome
     roboto
   ];

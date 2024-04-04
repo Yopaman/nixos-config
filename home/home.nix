@@ -5,23 +5,23 @@
   lib,
   config,
   pkgs,
+  nix-colors,
   ...
 }: {
   # You can import other home-manager modules here
   imports = [
+    nix-colors.homeManagerModules.default
     ./programs
   ];
 
-  
+  colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
 
-  # TODO: Set your username
   home = {
     username = "pablo";
     homeDirectory = "/home/pablo";
   };
 
   # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
   home.packages = with pkgs; [ 
     # Graphical Programs
     firefox
@@ -29,6 +29,7 @@
     wofi
     dolphin
     discord
+    zathura
 
     # Desktop
     swww
@@ -49,6 +50,11 @@
     zig
     python3
     ccls
+    clang-tools
+    gcc
+    gnumake
+    racket
+    
 
     # Misc
     fastfetch

@@ -33,30 +33,19 @@
         "num-tags": 8
     },
     "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "active-only": false,
-        "format": "{icon}",
-        "on-click": "activate",
-        "format-icons": {
-            "1": "❶",
-            "2": "❷",
-            "3": "❸",
-            "4": "❹",
-            "5": "❺",
-            "6": "",
-            "7": "󰙯",
-            "urgent": "",
-            "active": "●",
-            "default": ""
-        },
-        "persistent_workspaces": {
-            "1": [], 
-            "2": [], 
-            "3": [], 
-            "4": [], 
-            "5": [],
-        }
+    	"format": "{icon}",
+    	"format-icons": {
+    		"1": "1",
+    		"2": "2",
+    		"3": "3",
+    		"4": "4",
+    		"5": "5",
+    		"active": "",
+    		"default": ""
+    	},
+           "persistent-workspaces": {
+                 "*": 5, // 5 workspaces by default on every monitor
+       }
     },
     "keyboard-state": {
         "numlock": true,
@@ -137,7 +126,7 @@
     "backlight": {
         // "device": "acpi_video1",
         "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format-icons": [""]
     },
     "battery": {
         "states": {
