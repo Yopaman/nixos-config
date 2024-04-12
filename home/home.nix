@@ -1,12 +1,11 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{
-  inputs,
-  lib,
-  config,
-  pkgs,
-  nix-colors,
-  ...
+{ inputs
+, lib
+, config
+, pkgs
+, nix-colors
+, ...
 }: {
   # You can import other home-manager modules here
   imports = [
@@ -22,14 +21,19 @@
   };
 
   # Add stuff for your user as you see fit:
-  home.packages = with pkgs; [ 
+  home.packages = with pkgs; [
     # Graphical Programs
     firefox
     alacritty
     wofi
-    dolphin
+    xfce.thunar
     discord
     zathura
+    pandoc
+    mongodb-compass
+
+    # Latex
+    texliveSmall
 
     # Desktop
     swww
@@ -40,12 +44,14 @@
 
     # Editors 
     helix
+    zellij
 
     # Programming Languages 
     rustup
     go
     gopls
     nil
+    nixpkgs-fmt
     nodejs_20
     zig
     python3
@@ -54,7 +60,7 @@
     gcc
     gnumake
     racket
-    
+
 
     # Misc
     fastfetch
