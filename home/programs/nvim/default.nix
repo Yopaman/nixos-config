@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 
 {
-  programs.neovim = { 
+  programs.neovim = {
     enable = true;
     withPython3 = true;
     # extraPython3Packages = pkgs: with pkgs; [ pil ];

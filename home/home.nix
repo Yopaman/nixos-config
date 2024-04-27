@@ -5,11 +5,13 @@
 , config
 , pkgs
 , nix-colors
+, niri
 , ...
 }: {
   # You can import other home-manager modules here
   imports = [
     nix-colors.homeManagerModules.default
+    niri.homeModules.niri
     ./programs
   ];
 
@@ -31,6 +33,8 @@
     zathura
     pandoc
     mongodb-compass
+    zed-editor
+    qemu
 
     # Latex
     texliveSmall
@@ -41,6 +45,7 @@
     hyprlock
     swaynotificationcenter
     networkmanagerapplet
+    nwg-displays
 
     # Editors 
     helix
@@ -60,15 +65,51 @@
     gcc
     gnumake
     racket
-
+    vscode-langservers-extracted
+    htmx-lsp
 
     # Misc
     fastfetch
+    ffmpeg
+    slurp
+    grim
   ];
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.catppuccin-cursors;
+    name = "mochaLavender";
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Catppuccin-Mocha-Compact-Lavender-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "lavender" ];
+        size = "compact";
+        variant = "mocha";
+      };
+    };
+
+    cursorTheme = {
+      name = "Catppuccin-Mocha-Lavender-Cursors";
+      package = pkgs.catppuccin-cursors.mochaLavender;
+      size = 20;
+    };
+  };
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git.enable = true;
+
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      catppuccin.catppuccin-vsc
+      vscodevim.vim
+    ];
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

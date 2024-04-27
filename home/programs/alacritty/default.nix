@@ -5,6 +5,9 @@
     enable = true;
     settings = {
         import = ["/home/pablo/.config/alacritty/catppuccin-mocha.toml"];
+        env = {
+          TERM = "xterm-256color";
+        };
         font = {
           size = 12;
           normal = {

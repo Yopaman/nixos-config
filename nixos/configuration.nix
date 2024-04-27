@@ -4,7 +4,6 @@
 , lib
 , config
 , pkgs
-, pkgs-unfree
 , ...
 }: {
   # You can import other NixOS modules here
@@ -76,7 +75,7 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub.useOSProber = false;
+  boot.loader.grub.useOSProber = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -98,10 +97,12 @@
     };
   };
 
+
   # Configure keymap in X11
   services.xserver.xkb.layout = "fr";
   services.xserver.xkb.options = "eurosign:e,caps:escape";
 
+  
   # Sound configuration
   sound.enable = true;
   services.pipewire = {
@@ -181,7 +182,7 @@
       openssh.authorizedKeys.keys = [
         # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       ];
-      extraGroups = [ "wheel" "networkmanager" "audio" "rtkit" ];
+      extraGroups = [ "wheel" "networkmanager" "audio" "rtkit" "libvirtd" ];
     };
   };
 
@@ -192,19 +193,25 @@
     curl
     efibootmgr
     git
-    hyprland
     greetd.tuigreet
     inotify-tools
     killall
     pamixer
     libmpc
+    cachix
+    distrobox
   ];
+
+  programs.hyprland.enable = true;
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Monaspace" "Noto" ]; })
     font-awesome
     roboto
   ];
+
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
 
   programs.ssh.startAgent = true;

@@ -1,6 +1,15 @@
 {
   description = "Your new nix config";
 
+  nixConfig = {
+    extra-substituters = [
+      "https://niri.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
+    ];
+  };
+
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -12,6 +21,9 @@
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
 
+    # Niri (scrolling Window Manager)
+    niri.url = "github:sodiboo/niri-flake";
+
     # Shameless plug: looking for a way to nixify your themes and make
     nix-colors.url = "github:misterio77/nix-colors";
   };
@@ -21,6 +33,7 @@
     , nixpkgs
     , home-manager
     , nix-colors
+    , niri
     , ...
     } @ inputs:
     let
@@ -30,12 +43,6 @@
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
-        extra-substituters = [
-          "https://nix-community.cachix.org"
-        ];
-        extra-trusted-public-keys = [
-          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        ];
         nixos = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           # > Our main nixos configuration file <
@@ -46,7 +53,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.pablo = import ./home/home.nix;
-              home-manager.extraSpecialArgs = { inherit nix-colors; };
+              home-manager.extraSpecialArgs = { inherit nix-colors niri; };
               # Optionally, use home-manager.extraSpecialArgs to pass
               # arguments to home.nix
             }
