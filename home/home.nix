@@ -35,6 +35,7 @@
     mongodb-compass
     zed-editor
     qemu
+    mpv
 
     # Latex
     texliveSmall
@@ -47,11 +48,11 @@
     networkmanagerapplet
     nwg-displays
 
-    # Editors 
+    # Editors
     helix
     zellij
 
-    # Programming Languages 
+    # Programming Languages
     rustup
     go
     gopls
@@ -68,11 +69,12 @@
     vscode-langservers-extracted
     htmx-lsp
 
-    # Misc
+    # Command Line programs
     fastfetch
     ffmpeg
     slurp
     grim
+    yt-dlp
   ];
 
   home.pointerCursor = {
@@ -111,8 +113,9 @@
     ];
   };
 
+
   # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
+  # systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
