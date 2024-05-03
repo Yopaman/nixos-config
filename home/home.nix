@@ -36,6 +36,8 @@
     zed-editor
     qemu
     mpv
+    flameshot
+    lapce
 
     # Latex
     texliveSmall
@@ -68,6 +70,7 @@
     racket
     vscode-langservers-extracted
     htmx-lsp
+    nodePackages.eslint
 
     # Command Line programs
     fastfetch
