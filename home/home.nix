@@ -57,19 +57,13 @@
     # Programming Languages
     rustup
     go
-    gopls
-    nil
-    nixpkgs-fmt
     nodejs_20
     zig
     python3
-    ccls
     clang-tools
     gcc
     gnumake
     racket
-    vscode-langservers-extracted
-    htmx-lsp
     nodePackages.eslint
 
     # Command Line programs
