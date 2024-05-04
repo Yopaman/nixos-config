@@ -72,6 +72,7 @@
     slurp
     grim
     yt-dlp
+    wl-clipboard
   ];
 
   home.pointerCursor = {
