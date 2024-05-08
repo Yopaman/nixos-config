@@ -82,14 +82,20 @@
     enable = true;
   };
 
-  services.greetd = {
-    enable = true;
-    settings.default_session = {
-      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
-      user = "greeter";
-    };
-  };
+  #services.greetd = {
+  #  enable = true;
+  #  settings.default_session = {
+  #    command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet --layer-shell";
+  #    user = "greeter";
+  #  };
+  #};
 
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    extraPackages = [ pkgs.sddm-chili-theme ];
+    theme = "chili";
+  };
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "fr";
@@ -116,6 +122,8 @@
       fi
     '';
   };
+
+  services.gvfs.enable = true;
 
   # Bluetooth
   hardware.bluetooth.enable = true; # enables support for Bluetooth
@@ -150,22 +158,20 @@
     curl
     efibootmgr
     git
-    greetd.tuigreet
     inotify-tools
     killall
     pamixer
     libmpc
     cachix
     distrobox
+    sddm-chili-theme
+    xdg-desktop-portal-gtk
   ];
 
   programs.hyprland = {
     enable = true;
   };
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [
-    pkgs.xdg-desktop-portal-gtk
-  ];
+
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Monaspace" "Noto" ]; })

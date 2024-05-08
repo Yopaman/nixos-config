@@ -24,6 +24,14 @@ vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find exis
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
 
+-- Format Buffer
+vim.keymap.set(
+	"n",
+	"<leader>f",
+	function() require("conform").format({ async = true, lsp_fallback = true }) end,
+	{ desc = "Format buffer" }
+)
+
 -- Lsp
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),

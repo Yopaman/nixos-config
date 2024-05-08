@@ -32,7 +32,7 @@ lspconfig.nil_ls.setup({
 
 lspconfig.racket_langserver.setup({})
 
-lspconfig.ccls.setup({})
+lspconfig.clangd.setup({})
 
 lspconfig.html.setup({})
 

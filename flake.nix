@@ -3,10 +3,8 @@
 
   nixConfig = {
     extra-substituters = [
-      "https://niri.cachix.org"
     ];
     extra-trusted-public-keys = [
-      "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
     ];
   };
 
@@ -21,9 +19,6 @@
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
 
-    # Niri (scrolling Window Manager)
-    niri.url = "github:sodiboo/niri-flake";
-
     # Shameless plug: looking for a way to nixify your themes and make
     nix-colors.url = "github:misterio77/nix-colors";
   };
@@ -33,7 +28,6 @@
     , nixpkgs
     , home-manager
     , nix-colors
-    , niri
     , ...
     } @ inputs:
     let
@@ -54,7 +48,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.pablo = import ./home/home.nix;
-              home-manager.extraSpecialArgs = { inherit nix-colors niri; };
+              home-manager.extraSpecialArgs = { inherit nix-colors ; };
               # Optionally, use home-manager.extraSpecialArgs to pass
               # arguments to home.nix
             }
@@ -71,7 +65,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.pablo = import ./home/home.nix;
-              home-manager.extraSpecialArgs = { inherit nix-colors niri; };
+              home-manager.extraSpecialArgs = { inherit nix-colors ; };
               # Optionally, use home-manager.extraSpecialArgs to pass
               # arguments to home.nix
             }

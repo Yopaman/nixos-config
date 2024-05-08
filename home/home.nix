@@ -5,13 +5,11 @@
 , config
 , pkgs
 , nix-colors
-, niri
 , ...
 }: {
   # You can import other home-manager modules here
   imports = [
     nix-colors.homeManagerModules.default
-    niri.homeModules.niri
     ./programs
   ];
 

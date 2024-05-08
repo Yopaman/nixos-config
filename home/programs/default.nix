@@ -9,6 +9,5 @@
     ./starship
     ./helix
     ./swaync
-    ./niri
   ];
 }
