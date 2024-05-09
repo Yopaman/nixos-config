@@ -9,5 +9,7 @@ require("conform").setup({
 		javascriptreact = { { "prettierd", "prettier" } },
 
 		c = { "clang-format" },
+
+		nix = { "nixpkgs-fmt" }
 	},
 })
