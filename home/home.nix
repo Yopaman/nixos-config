@@ -4,16 +4,15 @@
 , lib
 , config
 , pkgs
-, nix-colors
 , ...
 }: {
   # You can import other home-manager modules here
   imports = [
-    nix-colors.homeManagerModules.default
+    inputs.nix-colors.homeManagerModules.default
     ./programs
   ];
 
-  colorScheme = nix-colors.colorSchemes.catppuccin-mocha;
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   home = {
     username = "pablo";
@@ -28,6 +27,7 @@
     wofi
     xfce.thunar
     discord
+    vesktop
     zathura
     pandoc
     mongodb-compass
@@ -36,17 +36,19 @@
     mpv
     flameshot
     lapce
+    reaper
+    obs-studio
 
     # Latex
     texliveSmall
 
     # Desktop
     swww
-    hypridle
     hyprlock
     swaynotificationcenter
     networkmanagerapplet
     nwg-displays
+    niri
 
     # Editors
     helix

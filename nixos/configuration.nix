@@ -173,9 +173,9 @@
     xdg-desktop-portal-gtk
   ];
 
-  programs.hyprland = {
-    enable = true;
-  };
+  # programs.hyprland = {
+  #   enable = true;
+  # };
 
 
   fonts.packages = with pkgs; [

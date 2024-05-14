@@ -21,6 +21,8 @@
 
     # Shameless plug: looking for a way to nixify your themes and make
     nix-colors.url = "github:misterio77/nix-colors";
+
+
   };
 
   outputs =
@@ -48,7 +50,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.pablo = import ./home/home.nix;
-              home-manager.extraSpecialArgs = { inherit nix-colors ; };
+              home-manager.extraSpecialArgs = { inherit inputs; };
               # Optionally, use home-manager.extraSpecialArgs to pass
               # arguments to home.nix
             }
@@ -64,8 +66,10 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+
+              home-manager.backupFileExtension = "backup";
               home-manager.users.pablo = import ./home/home.nix;
-              home-manager.extraSpecialArgs = { inherit nix-colors ; };
+              home-manager.extraSpecialArgs = { inherit inputs; };
               # Optionally, use home-manager.extraSpecialArgs to pass
               # arguments to home.nix
             }
