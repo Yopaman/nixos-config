@@ -91,8 +91,8 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    extraPackages = [ pkgs.sddm-chili-theme ];
-    theme = "chili";
+    # extraPackages = [ pkgs.sddm-chili-theme ];
+    # theme = "chili";
   };
 
   # Configure keymap in X11
@@ -169,8 +169,9 @@
     libmpc
     cachix
     distrobox
-    sddm-chili-theme
+    # sddm-chili-theme
     xdg-desktop-portal-gtk
+
   ];
 
   # programs.hyprland = {

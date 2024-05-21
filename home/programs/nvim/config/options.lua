@@ -16,7 +16,7 @@ vim.o.clipboard = "unnamedplus"
 vim.o.breakindent = true
 
 -- Enable warp
-vim.o.warp = true
+-- vim.o.warp = true
 
 -- Save undo history
 vim.o.undofile = true
