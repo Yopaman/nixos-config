@@ -95,6 +95,10 @@
     # theme = "chili";
   };
 
+  
+  # need to install hyprland system wide to make it appear on display managers
+  programs.hyprland.enable = true;
+
   # Configure keymap in X11
   services.xserver.xkb.layout = "fr";
   services.xserver.xkb.options = "eurosign:e,caps:escape";
@@ -173,11 +177,6 @@
     xdg-desktop-portal-gtk
 
   ];
-
-  # programs.hyprland = {
-  #   enable = true;
-  # };
-
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Monaspace" "Noto" ]; })

@@ -23,6 +23,7 @@
   home.packages = with pkgs; [
     # Graphical Programs
     firefox
+    spotify
     alacritty
     wofi
     xfce.thunar

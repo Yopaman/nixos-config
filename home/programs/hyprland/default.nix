@@ -104,6 +104,8 @@
         "ignorealpha, wofi"
         "ignorealpha, anyrun"
         "blur, anyrun"
+        "ignorealpha, swaync-control-center"
+        "blur, swaync-control-center"
       ];
 
       "$mainMod" = "SUPER";
@@ -158,21 +160,14 @@
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
 
-        ", XF86AudioRaiseVolume, exec, volumectl -u up # pamixer -i 5"
-        ", XF86AudioLowerVolume, exec, volumectl -u down # pamixer -d 5"
-        ", XF86AudioMute,exec, volumectl toggle-mute # pamixer -t"
+        ", XF86AudioRaiseVolume, exec, pamixer -i 5"
+        ", XF86AudioLowerVolume, exec, pamixer -d 5"
+        ", XF86AudioMute,exec, volumectl pamixer -t"
 
 
-        "$mainMod_SHIFT, S, exec, grim -g '$(slurp - d) - | wl-copy'"
-
-        "$mainMod, B, exec, ~/.local/bin/toggle_bar.sh"
-        "$mainMod, SEMICOLON, exec, wofi-emoji"
-
+        "$mainMod_SHIFT, S, exec, grim -g $(slurp - d) - | wl-copy"
 
         "$mainMod_SHIFT, space, exec, playerctl -p spotify play-pause"
-
-
-        "$mainMod_SHIFT, P, exec, hyprpicker -a"
       ];
 
       exec-once = [
