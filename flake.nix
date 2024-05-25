@@ -22,6 +22,11 @@
     # Shameless plug: looking for a way to nixify your themes and make
     nix-colors.url = "github:misterio77/nix-colors";
 
+    kwin-effects-forceblur = {
+      url = "github:taj-ny/kwin-effects-forceblur";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
 
   };
 
@@ -30,6 +35,7 @@
     , nixpkgs
     , home-manager
     , nix-colors
+    , kwin-effects-forceblur
     , ...
     } @ inputs:
     let

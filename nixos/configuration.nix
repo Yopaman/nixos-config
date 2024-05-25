@@ -178,6 +178,7 @@
     xdg-desktop-portal-gtk
     niri
     (catppuccin-kde.override { flavour = ["mocha"]; })
+    inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
   ];
 
   fonts.packages = with pkgs; [

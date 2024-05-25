@@ -29,7 +29,7 @@
         };
         window = {
           opacity = 0.9;
-          decorations = "None";
+          # decorations = "None";
           padding = {
             x = 15;
             y = 15;
