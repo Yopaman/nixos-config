@@ -25,6 +25,7 @@
     firefox
     spotify
     alacritty
+    wezterm
     wofi
     xfce.thunar
     discord
@@ -39,6 +40,9 @@
     lapce
     reaper
     obs-studio
+    godot_4
+    blender
+    prismlauncher
 
     # Latex
     texliveSmall

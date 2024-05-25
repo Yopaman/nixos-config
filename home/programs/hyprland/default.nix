@@ -171,11 +171,11 @@
       ];
 
       exec-once = [
-        "~/.config/waybar/launch.sh"
         "hypridle"
         "swww init;swww img ~/.config/hypr/wallpaper.jpeg"
         "nm-applet"
         "swaync"
+        "systemctl --user reset-failed waybar.service"
       ];
     };
   };

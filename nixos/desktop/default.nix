@@ -17,12 +17,4 @@
 
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
-
-  services.desktopManager.plasma6 = {
-    enable = true;
-  };
-
-  environment.systemPackages = with pkgs; [
-    (catppuccin-kde.override { flavour = ["mocha"]; })
-  ];
 }

@@ -91,13 +91,15 @@
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    # extraPackages = [ pkgs.sddm-chili-theme ];
-    # theme = "chili";
   };
 
   
   # need to install hyprland system wide to make it appear on display managers
   programs.hyprland.enable = true;
+
+  services.desktopManager.plasma6 = {
+    enable = true;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "fr";
@@ -173,9 +175,9 @@
     libmpc
     cachix
     distrobox
-    # sddm-chili-theme
     xdg-desktop-portal-gtk
-
+    niri
+    (catppuccin-kde.override { flavour = ["mocha"]; })
   ];
 
   fonts.packages = with pkgs; [
