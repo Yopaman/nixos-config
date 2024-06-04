@@ -26,7 +26,6 @@
     spotify
     alacritty
     wezterm
-    wofi
     xfce.thunar
     discord
     vesktop
@@ -43,17 +42,22 @@
     godot_4
     blender
     prismlauncher
+    neovide
 
     # Latex
     texliveSmall
 
     # Desktop
     swww
+    wofi
+    fuzzel
+    anyrun
     hyprlock
     swaynotificationcenter
     networkmanagerapplet
     nwg-displays
     niri
+    catppuccin-cursors
 
     # Editors
     helix
@@ -78,12 +82,14 @@
     grim
     yt-dlp
     wl-clipboard
+    btop
   ];
 
   home.pointerCursor = {
     gtk.enable = true;
-    package = pkgs.catppuccin-cursors;
-    name = "mochaLavender";
+    x11.enable = true;
+    package = pkgs.catppuccin-cursors.mochaLavender;
+    name = "Catppuccin-Mocha-Lavender-Cursors";
   };
 
   gtk = {

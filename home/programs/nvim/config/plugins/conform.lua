@@ -10,6 +10,8 @@ require("conform").setup({
 
 		c = { "clang-format" },
 
-		nix = { "nixpkgs-fmt" }
+		nix = { "nixpkgs-fmt" },
+
+		zig = { "zigfmt" }
 	},
 })

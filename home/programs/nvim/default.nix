@@ -104,6 +104,7 @@
         prettierd
         stylua
         black
+        zls
       ];
     };
 }

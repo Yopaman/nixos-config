@@ -41,3 +41,5 @@ lspconfig.htmx.setup({})
 lspconfig.gopls.setup({})
 
 lspconfig.eslint.setup({})
+
+lspconfig.zls.setup({})

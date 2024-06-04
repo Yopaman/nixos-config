@@ -11,6 +11,13 @@
         "~/.config/hypr/mocha.conf"
       ];
 
+      env = [
+        "LIBVA_DRIVER_NAME,nvidia"
+        "XDG_SESSION_TYPE,wayland"
+        # "GBM_BACKEND,nvidia-drm"
+        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+      ];
+
       input = {
         kb_layout = "fr";
         kb_variant = "oss";
@@ -165,7 +172,7 @@
         ", XF86AudioMute,exec, volumectl pamixer -t"
 
 
-        "$mainMod_SHIFT, S, exec, grim -g $(slurp - d) - | wl-copy"
+        "$mainMod_SHIFT, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
 
         "$mainMod_SHIFT, space, exec, playerctl -p spotify play-pause"
       ];
@@ -173,9 +180,10 @@
       exec-once = [
         "hypridle"
         "swww init;swww img ~/.config/hypr/wallpaper.jpeg"
+        "waybar"
         "nm-applet"
         "swaync"
-        "systemctl --user reset-failed waybar.service"
+        "hyprctl setcursor Catppuccin-Mocha-Lavender 20"
       ];
     };
   };
