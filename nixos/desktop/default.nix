@@ -7,8 +7,10 @@
   ];
   # Bootloader.
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sdc";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.device = "nodev";
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot";
   boot.extraModprobeConfig = ''
     options hid_apple fnmode=2
   '';

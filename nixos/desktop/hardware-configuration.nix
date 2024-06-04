@@ -13,11 +13,16 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-
+  
   fileSystems."/" =
-    {
-      device = "/dev/disk/by-uuid/bfe294b0-f8f6-4c34-8f2f-ef9872f1b720";
+    { device = "/dev/disk/by-label/NIXROOT";
       fsType = "ext4";
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-label/NIXBOOT";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
     };
 
   swapDevices = [ ];
