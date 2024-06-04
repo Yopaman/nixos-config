@@ -113,6 +113,8 @@
         "blur, anyrun"
         "ignorealpha, swaync-control-center"
         "blur, swaync-control-center"
+        "blur, avizo"
+        "ignorealpha, avizo"
       ];
 
       "$mainMod" = "SUPER";
@@ -167,9 +169,9 @@
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
 
-        ", XF86AudioRaiseVolume, exec, pamixer -i 5"
-        ", XF86AudioLowerVolume, exec, pamixer -d 5"
-        ", XF86AudioMute,exec, volumectl pamixer -t"
+        ", XF86AudioRaiseVolume, exec, volumectl +"
+        ", XF86AudioLowerVolume, exec, volumectl -"
+        ", XF86AudioMute,exec, volumectl %"
 
 
         "$mainMod_SHIFT, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
@@ -184,6 +186,7 @@
         "nm-applet"
         "swaync"
         "hyprctl setcursor Catppuccin-Mocha-Lavender 20"
+        "avizo-service"
       ];
     };
   };

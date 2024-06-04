@@ -56,8 +56,8 @@
     swaynotificationcenter
     networkmanagerapplet
     nwg-displays
-    niri
     catppuccin-cursors
+    avizo
 
     # Editors
     helix
