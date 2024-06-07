@@ -79,7 +79,8 @@
         }
         {
           plugin = comment-nvim;
-          config = toLuaFile ./config/plugins/comment.lua;
+          type = "lua";
+          config = "require(\"Comment\").setup({})";
         }
         {
           plugin = conform-nvim;

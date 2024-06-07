@@ -80,26 +80,10 @@
     enable = true;
   };
 
-  #services.greetd = {
-  #  enable = true;
-  #  settings.default_session = {
-  #    command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet --layer-shell";
-  #    user = "greeter";
-  #  };
-  #};
-
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-  };
-
   
+
   # need to install hyprland system wide to make it appear on display managers
   programs.hyprland.enable = true;
-
-  services.desktopManager.plasma6 = {
-    enable = true;
-  };
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "fr";

@@ -8,11 +8,9 @@
 }: {
   # You can import other home-manager modules here
   imports = [
-    inputs.nix-colors.homeManagerModules.default
+    inputs.catppuccin.homeManagerModules.catppuccin
     ./programs
   ];
-
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
   home = {
     username = "pablo";
@@ -31,24 +29,20 @@
     vesktop
     zathura
     pandoc
-    mongodb-compass
     zed-editor
     qemu
     mpv
-    flameshot
-    lapce
-    reaper
     obs-studio
     godot_4
     blender
     prismlauncher
     neovide
+    ladybird
 
     # Latex
     texliveSmall
 
     # Desktop
-    swww
     wofi
     fuzzel
     anyrun
@@ -85,6 +79,14 @@
     btop
   ];
 
+  # Enable home-manager and git
+  programs.home-manager.enable = true;
+  programs.git.enable = true;
+
+  catppuccin.enable = true;
+  catppuccin.accent = "lavender";
+  catppuccin.flavor = "mocha";
+
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
@@ -94,25 +96,23 @@
 
   gtk = {
     enable = true;
-    theme = {
-      name = "Catppuccin-Mocha-Compact-Lavender-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "lavender" ];
-        size = "compact";
-        variant = "mocha";
-      };
-    };
-
-    cursorTheme = {
-      name = "Catppuccin-Mocha-Lavender-Cursors";
-      package = pkgs.catppuccin-cursors.mochaLavender;
-      size = 20;
-    };
+    # theme = {
+    #   name = "Catppuccin-Mocha-Compact-Lavender-Dark";
+    #   package = pkgs.catppuccin-gtk.override {
+    #     accents = [ "lavender" ];
+    #     size = "compact";
+    #     variant = "mocha";
+    #   };
+    # };
+    #
+    # cursorTheme = {
+    #   name = "Catppuccin-Mocha-Lavender-Cursors";
+    #   package = pkgs.catppuccin-cursors.mochaLavender;
+    #   size = 20;
+    # };
   };
 
-  # Enable home-manager and git
-  programs.home-manager.enable = true;
-  programs.git.enable = true;
+
 
   programs.vscode = {
     enable = true;

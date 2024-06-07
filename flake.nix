@@ -16,17 +16,12 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # TODO: Add any other flake you might need
-    # hardware.url = "github:nixos/nixos-hardware";
-
-    # Shameless plug: looking for a way to nixify your themes and make
-    nix-colors.url = "github:misterio77/nix-colors";
-
     kwin-effects-forceblur = {
       url = "github:taj-ny/kwin-effects-forceblur";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    catppuccin.url = "github:catppuccin/nix";
 
   };
 
@@ -34,8 +29,8 @@
     { self
     , nixpkgs
     , home-manager
-    , nix-colors
     , kwin-effects-forceblur
+    , catppuccin
     , ...
     } @ inputs:
     let
@@ -58,8 +53,6 @@
               home-manager.useUserPackages = true;
               home-manager.users.pablo = import ./home/home.nix;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              # Optionally, use home-manager.extraSpecialArgs to pass
-              # arguments to home.nix
             }
           ];
         };
@@ -77,8 +70,6 @@
               home-manager.backupFileExtension = "backup";
               home-manager.users.pablo = import ./home/home.nix;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              # Optionally, use home-manager.extraSpecialArgs to pass
-              # arguments to home.nix
             }
           ];
         };

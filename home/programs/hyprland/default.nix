@@ -8,7 +8,6 @@
 
       source = [
         "~/.config/hypr/monitors.conf"
-        "~/.config/hypr/mocha.conf"
       ];
 
       env = [
@@ -181,7 +180,6 @@
 
       exec-once = [
         "hypridle"
-        "swww init;swww img ~/.config/hypr/wallpaper.jpeg"
         "waybar"
         "nm-applet"
         "swaync"
@@ -226,8 +224,14 @@
     };
   };
 
-  home.file.".config/hypr/mocha.conf".source = ./mocha.conf;
-  home.file.".config/hypr/wallpaper.jpeg".source = ./wallpaper.jpeg;
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      preload = "~/.config/hypr/wallpaper.png";
+      wallpaper = ",~/.config/hypr/wallpaper.png";
+    };
+  };
+
   home.file.".config/hypr/wallpaper.png".source = ./wallpaper.png;
   home.file.".config/hypr/hyprlock.conf".source = ./hyprlock.conf;
 }

@@ -17,4 +17,12 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
 
+  services.greetd = {
+    enable = true;
+    settings.default_session = {
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --cmd Hyprland --remember";
+      user = "greeter";
+    };
+  };
+
 }
