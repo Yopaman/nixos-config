@@ -3,6 +3,7 @@
 {
   programs.waybar = {
     enable = true;
+    catppuccin.mode = "createLink";
     settings = [{
       layer = "top";
       height = 40;
@@ -89,4 +90,5 @@
       };
     }];
   };
+  home.file.".config/waybar/style.css".source = ./style.css;
 }
