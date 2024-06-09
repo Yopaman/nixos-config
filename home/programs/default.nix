@@ -10,5 +10,6 @@
     ./helix
     ./swaync
     ./niri
+    ./rio
   ];
 }
