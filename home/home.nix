@@ -21,6 +21,7 @@
   home.packages = with pkgs; [
     # Graphical Programs
     firefox
+    thunderbird
     spotify
     alacritty
     wezterm
