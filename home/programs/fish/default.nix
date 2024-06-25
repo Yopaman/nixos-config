@@ -3,7 +3,7 @@
 {
   programs.fish = {
     enable = true;
-    function = {
+    functions = {
       ls = {
         body = "eza --icons";
       };
