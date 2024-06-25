@@ -20,30 +20,41 @@
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
     # Graphical Programs
+    # ------------------
+
+    # Network/Internet
     firefox
-    thunderbird
+    ladybird
+    qbittorrent
+
+    # Medias
     spotify
-    alacritty
-    wezterm
-    xfce.thunar
+    zathura
+    mpv
+    blender
+    obs-studio
+
+    # Social
     discord
     vesktop
-    zathura
-    pandoc
+    thunderbird
+
+    # Dev
+    alacritty
+    wezterm
     zed-editor
-    qemu
-    mpv
-    obs-studio
     godot_4
-    blender
-    prismlauncher
+    qemu
     neovide
-    ladybird
+
+    # Games
+    prismlauncher
 
     # Latex
     texliveSmall
 
     # Desktop
+    xfce.thunar
     wofi
     fuzzel
     hyprlock
@@ -55,9 +66,9 @@
 
     # Editors
     helix
-    zellij
 
     # Programming Languages
+    # ---------------------
     rustup
     go
     nodejs_20
@@ -69,7 +80,8 @@
     racket
     nodePackages.eslint
 
-    # Command Line programs
+    # Command Line Programs
+    # ---------------------
     fastfetch
     ffmpeg
     slurp
@@ -77,7 +89,9 @@
     yt-dlp
     wl-clipboard
     btop
+    zellij
     eza
+    pandoc
   ];
 
   # Enable home-manager and git

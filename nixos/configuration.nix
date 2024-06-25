@@ -66,6 +66,7 @@
 
   networking.networkmanager.enable = true;
   networking.wireguard.enable = true;
+  networking.firewall.checkReversePath = false;
 
   time.timeZone = "Europe/Paris";
 
