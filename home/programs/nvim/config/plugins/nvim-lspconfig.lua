@@ -43,3 +43,5 @@ lspconfig.gopls.setup({})
 lspconfig.eslint.setup({})
 
 lspconfig.zls.setup({})
+
+lspconfig.astro.setup({})

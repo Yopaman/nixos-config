@@ -65,6 +65,7 @@
   nix.settings.trusted-users = [ "root" "pablo" ];
 
   networking.networkmanager.enable = true;
+  networking.wireguard.enable = true;
 
   time.timeZone = "Europe/Paris";
 
@@ -80,7 +81,7 @@
     enable = true;
   };
 
-  
+
 
   # need to install hyprland system wide to make it appear on display managers
   programs.hyprland.enable = true;
@@ -120,6 +121,9 @@
       fi
     '';
   };
+
+  programs.steam.enable = true;
+
 
   services.gvfs.enable = true;
 
@@ -161,7 +165,7 @@
     distrobox
     xdg-desktop-portal-gtk
     niri
-    (catppuccin-kde.override { flavour = ["mocha"]; })
+    (catppuccin-kde.override { flavour = [ "mocha" ]; })
     inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
   ];
 
@@ -169,6 +173,7 @@
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Monaspace" "Noto" ]; })
     font-awesome
     roboto
+    hack-font
   ];
 
   virtualisation.libvirtd.enable = true;

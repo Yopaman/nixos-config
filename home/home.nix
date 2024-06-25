@@ -78,6 +78,7 @@
     yt-dlp
     wl-clipboard
     btop
+    eza
   ];
 
   # Enable home-manager and git
@@ -88,6 +89,7 @@
   catppuccin.accent = "lavender";
   catppuccin.flavor = "mocha";
 
+
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
@@ -95,8 +97,11 @@
     name = "Catppuccin-Mocha-Lavender-Cursors";
   };
 
+
+
   gtk = {
     enable = true;
+    catppuccin.enable = true;
     # theme = {
     #   name = "Catppuccin-Mocha-Compact-Lavender-Dark";
     #   package = pkgs.catppuccin-gtk.override {
