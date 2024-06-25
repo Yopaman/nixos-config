@@ -46,13 +46,12 @@
     # Desktop
     wofi
     fuzzel
-    anyrun
     hyprlock
     swaynotificationcenter
     networkmanagerapplet
     nwg-displays
-    catppuccin-cursors
     avizo
+    hyprcursor
 
     # Editors
     helix
@@ -96,29 +95,6 @@
     package = pkgs.catppuccin-cursors.mochaLavender;
     name = "Catppuccin-Mocha-Lavender-Cursors";
   };
-
-
-
-  gtk = {
-    enable = true;
-    catppuccin.enable = true;
-    # theme = {
-    #   name = "Catppuccin-Mocha-Compact-Lavender-Dark";
-    #   package = pkgs.catppuccin-gtk.override {
-    #     accents = [ "lavender" ];
-    #     size = "compact";
-    #     variant = "mocha";
-    #   };
-    # };
-    #
-    # cursorTheme = {
-    #   name = "Catppuccin-Mocha-Lavender-Cursors";
-    #   package = pkgs.catppuccin-cursors.mochaLavender;
-    #   size = 20;
-    # };
-  };
-
-
 
   programs.vscode = {
     enable = true;

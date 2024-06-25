@@ -183,7 +183,7 @@
         "waybar"
         "nm-applet"
         "swaync"
-        "hyprctl setcursor Catppuccin-Mocha-Lavender 20"
+        "hyprctl setcursor catppuccin-mocha-lavender-cursors 24"
         "avizo-service"
       ];
     };
