@@ -46,6 +46,7 @@
     godot_4
     qemu
     neovide
+    imhex
 
     # Games
     prismlauncher

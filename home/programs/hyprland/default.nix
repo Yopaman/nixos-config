@@ -3,6 +3,7 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    xwayland.enable = true;
 
     settings = {
 
@@ -83,10 +84,6 @@
       dwindle = {
         pseudotile = true;
         preserve_split = true;
-      };
-
-      master = {
-        new_is_master = true;
       };
 
       gestures = {
