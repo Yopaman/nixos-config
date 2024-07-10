@@ -4,7 +4,7 @@ require("conform").setup({
 		-- Conform will run multiple formatters sequentially
 		python = { "black" },
 		-- Use a sub-list to run only the first available formatter
-		javascript = { { "prettierd", "prettier" } },
+		javascript = { { "biome", "prettierd", "prettier" } },
 
 		javascriptreact = { { "prettierd", "prettier" } },
 
@@ -12,6 +12,6 @@ require("conform").setup({
 
 		nix = { "nixpkgs-fmt" },
 
-		zig = { "zigfmt" }
+		zig = { "zigfmt" },
 	},
 })

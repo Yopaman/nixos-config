@@ -45,3 +45,10 @@ lspconfig.eslint.setup({})
 lspconfig.zls.setup({})
 
 lspconfig.astro.setup({})
+
+lspconfig.tsserver.setup({
+	filetypes = {
+		"javascript",
+		"typescript",
+	},
+})

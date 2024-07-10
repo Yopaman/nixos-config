@@ -101,7 +101,7 @@
         ccls
         vscode-langservers-extracted
         htmx-lsp
-        nodePackages.eslint
+        nodePackages_latest.typescript-language-server
         prettierd
         stylua
         black

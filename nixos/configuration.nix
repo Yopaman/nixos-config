@@ -77,6 +77,14 @@
     useXkbConfig = true; # use xkb.options in tty.
   };
 
+  services.printing.enable = true;
+
+  services.avahi = {
+      enable = true;
+      nssmdns6 = true;
+      openFirewall = true;
+    };
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
@@ -169,7 +177,7 @@
   ];
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Monaspace" "Noto" ]; })
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" "DroidSansMono" "Monaspace" "Noto" ]; })
     font-awesome
     roboto
     hack-font

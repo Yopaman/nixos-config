@@ -31,7 +31,6 @@
     spotify
     zathura
     mpv
-    blender
     obs-studio
 
     # Social
@@ -93,6 +92,7 @@
     zellij
     eza
     pandoc
+    ripgrep
   ];
 
   # Enable home-manager and git

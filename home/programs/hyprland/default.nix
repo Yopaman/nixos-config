@@ -111,6 +111,8 @@
         "blur, swaync-control-center"
         "blur, avizo"
         "ignorealpha, avizo"
+        "blur, launcher"
+        "ignorealpha, launcher"
       ];
 
       "$mainMod" = "SUPER";
@@ -128,7 +130,7 @@
         "$mainMod_SHIFT, X, exec, ~/.config/rofi/scripts/powermenu_t2"
         "$mainMod, F, fullscreen,"
         "$mainMod, S, togglefloating,"
-        "$mainMod, D, exec, wofi"
+        "$mainMod, D, exec, fuzzel"
         "$mainMod, T, togglegroup,"
         "$mainMod, Y, moveoutofgroup"
         "$mainMod, Tab, changegroupactive,"

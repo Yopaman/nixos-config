@@ -10,6 +10,6 @@
     ./helix
     ./swaync
     ./niri
-    ./rio
+    ./fuzzel
   ];
 }

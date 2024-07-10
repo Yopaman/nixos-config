@@ -10,19 +10,19 @@
       font = {
         size = 12;
         normal = {
-          family = "MonaspiceNe Nerd Font";
+          family = "JetBrainsMono Nerd Font";
           style = "Regular";
         };
         bold_italic = {
-          family = "MonaspiceNe Nerd Font";
+          family = "JetBrainsMono Nerd Font";
           style = "Bold Italic";
         };
         bold = {
-          family = "MonaspiceNe Nerd Font";
+          family = "JetBrainsMono Nerd Font";
           style = "Bold";
         };
         italic = {
-          family = "MonaspiceNe Nerd Font";
+          family = "JetBrainsMono Nerd Font";
           style = "Italic";
         };
       };
