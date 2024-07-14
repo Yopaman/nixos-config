@@ -63,6 +63,7 @@
     nwg-displays
     avizo
     hyprcursor
+    gparted
 
     # Editors
     helix
@@ -93,6 +94,7 @@
     eza
     pandoc
     ripgrep
+    hugo
   ];
 
   # Enable home-manager and git
