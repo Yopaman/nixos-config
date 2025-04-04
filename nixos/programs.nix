@@ -38,7 +38,6 @@
     distrobox
     xdg-desktop-portal-gtk
     xwayland-satellite
-    inputs.agenix.packages."${system}".default
   ];
 
   fonts.packages = with pkgs; [
