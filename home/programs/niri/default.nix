@@ -4,6 +4,7 @@
   home.file.".config/niri/config.kdl".source = ./config.kdl;
   home.file.".config/wallpaper/wallpaper.png".source = ./wallpaper.png;
   home.file.".config/hypr/hyprlock.conf".source = ./hyprlock.conf;
+  home.file.".config/niri/lockscreen.sh".source = ./lockscreen.sh
 
   services.hyprpaper = {
     enable = true;
