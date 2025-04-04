@@ -1,5 +1,3 @@
-# This is your system's configuration file.
-# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 { inputs
 , lib
 , config
@@ -8,15 +6,8 @@
 }: {
   # You can import other NixOS modules here
   imports = [
-    # If you want to use modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
-
-    # Import your generated (nixos-generate-config) hardware configuration
-
+    ./programs.nix
+    ./services.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -84,84 +75,20 @@
     EDITOR = "nvim";
   };
 
-  services.printing.enable = true;
-
-  services.avahi = {
-    enable = true;
-    nssmdns6 = true;
-    openFirewall = true;
-  };
-
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-  };
-
-  # Desktop
-  programs.niri.enable = true;
-  services.desktopManager.plasma6.enable = true;
-
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-  };
-
-  programs.xwayland.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb.layout = "fr";
-  services.xserver.xkb.options = "eurosign:e,caps:escape";
-
-
-  # Sound configuration
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-    jack.enable = true;
-    configPackages = [
-      (pkgs.writeTextDir "share/wireplumber/bluetooth.lua.d/51-bluez-config.lua" ''
-        		bluez_monitor.properties = {
-        			["bluez5.enable-sbc-xq"] = true,
-        			["bluez5.enable-msbc"] = true,
-        			["bluez5.enable-hw-volume"] = true,
-        			["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
-        		}
-        	'')
-    ];
-  };
-
-  # Fish shell
-  programs.fish.enable = true;
-  programs.bash = {
-    interactiveShellInit = ''
-      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
-      then
-        shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-        exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
-      fi
-    '';
-  };
-
   # Slow "generating man cache" with fish
   documentation.man.generateCaches = false;
 
-
-
-  programs.steam.enable = true;
 
   services.gvfs.enable = true;
 
   # Bluetooth
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-  services.blueman.enable = true;
 
   # Enable OpenGL
   hardware.graphics = {
     enable = true;
   };
-
 
   users.users = {
     pablo = {
@@ -191,7 +118,7 @@
     inputs.agenix.packages."${system}".default
   ];
 
-    fonts.packages = with pkgs; [
+  fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
     font-awesome
@@ -199,25 +126,11 @@
     hack-font
   ];
 
-    virtualisation.libvirtd.enable = true;
-    programs.virt-manager.enable = true;
+  virtualisation.libvirtd.enable = true;
 
-    programs.ssh.startAgent = true;
-    # This setups a SSH server. Very important if you're setting up a headless system.
-    # Feel free to remove if you don't need it.
-    services.openssh = {
-      enable = true;
-      settings = {
-        # Forbid root login through SSH.
-        PermitRootLogin = "no";
-        # Use keys only. Remove if you want to SSH using password (not recommended)
-        PasswordAuthentication = false;
-      };
-    };
+  virtualisation.containers.enable = true;
+  virtualisation.podman.enable = true;
 
-    virtualisation.containers.enable = true;
-    virtualisation.podman.enable = true;
-
-    # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-    system.stateVersion = "23.05";
-    }
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  system.stateVersion = "23.05";
+}
