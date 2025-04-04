@@ -77,6 +77,12 @@
     useXkbConfig = true; # use xkb.options in tty.
   };
 
+  environment.sessionVariables = {
+    QT_QPA_PLATFORM = "wayland";
+    DISPLAY = ":1";
+    _JAVA_AWT_WM_NONREPARENTING = "1";
+  };
+
   services.printing.enable = true;
 
   services.avahi = {
@@ -98,7 +104,7 @@
     enable = true;
     wayland.enable = true;
   };
-  
+
   programs.xwayland.enable = true;
 
   # Configure keymap in X11
