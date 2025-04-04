@@ -44,12 +44,18 @@
 
     # Cybersec
     ghidra
+    ligolo-ng
+    nmap
+    seclists
+    john
+    burpsuite
 
     # Games
     prismlauncher
 
     # Desktop
     hyprlock
+    hypridle
     swaynotificationcenter
     networkmanagerapplet
     nwg-displays
