@@ -45,6 +45,4 @@
     powerManagement.enable = false;
     nvidiaSettings = true;
   };
-
-  hardware.graphics.enable = true;
 }

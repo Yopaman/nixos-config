@@ -16,11 +16,36 @@
     # Desktop
     niri.enable = true;
     xwayland.enable = true;
-    
+
     steam.enable = true;
 
     virt-manager.enable = true;
-    
+
     ssh.startAgent = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+    curl
+    efibootmgr
+    git
+    inotify-tools
+    killall
+    pamixer
+    libmpc
+    cachix
+    distrobox
+    xdg-desktop-portal-gtk
+    xwayland-satellite
+    inputs.agenix.packages."${system}".default
+  ];
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
+    font-awesome
+    roboto
+    hack-font
+  ];
 }

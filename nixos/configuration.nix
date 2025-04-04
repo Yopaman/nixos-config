@@ -12,31 +12,14 @@
   ];
 
   nixpkgs = {
-    # You can add overlays here
-    overlays = [
-      # If you want to use overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
-    ];
-    # Configure your nixpkgs instance
+    overlays = [];
     config = {
-      # Disable if you don't want unfree packages
       allowUnfree = true;
     };
   };
 
-  # This will add each flake input as a registry
-  # To make nix3 commands consistent with your flake
   nix.registry = (lib.mapAttrs (_: flake: { inherit flake; })) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
 
-  # This will additionally add your inputs to the system's legacy channels
-  # Making legacy nix commands consistent as well, awesome!
   nix.nixPath = [ "/etc/nix/path" ];
   environment.etc =
     lib.mapAttrs'
@@ -47,9 +30,7 @@
       config.nix.registry;
 
   nix.settings = {
-    # Enable flakes and new 'nix' command
     experimental-features = "nix-command flakes";
-    # Deduplicate and optimize nix store
     auto-optimise-store = true;
   };
 
@@ -61,7 +42,6 @@
 
   time.timeZone = "Europe/Paris";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
@@ -69,9 +49,9 @@
   };
 
   environment.sessionVariables = {
-    QT_QPA_PLATFORM = "wayland";
-    DISPLAY = ":0";
-    _JAVA_AWT_WM_NONREPARENTING = "1";
+    # QT_QPA_PLATFORM = "wayland";
+    # DISPLAY = ":0";
+    # _JAVA_AWT_WM_NONREPARENTING = "1";
     EDITOR = "nvim";
   };
 
@@ -82,8 +62,8 @@
   services.gvfs.enable = true;
 
   # Bluetooth
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  hardware.bluetooth.enable = true; 
+  hardware.bluetooth.powerOnBoot = true; 
 
   # Enable OpenGL
   hardware.graphics = {
@@ -93,44 +73,14 @@
   users.users = {
     pablo = {
       isNormalUser = true;
-      openssh.authorizedKeys.keys = [
-        # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-      ];
+      openssh.authorizedKeys.keys = [];
       extraGroups = [ "wheel" "networkmanager" "audio" "rtkit" "libvirtd" ];
     };
   };
 
-
-  environment.systemPackages = with pkgs; [
-    vim
-    wget
-    curl
-    efibootmgr
-    git
-    inotify-tools
-    killall
-    pamixer
-    libmpc
-    cachix
-    distrobox
-    xdg-desktop-portal-gtk
-    xwayland-satellite
-    inputs.agenix.packages."${system}".default
-  ];
-
-  fonts.packages = with pkgs; [
-    nerd-fonts.fira-code
-    nerd-fonts.jetbrains-mono
-    font-awesome
-    roboto
-    hack-font
-  ];
-
   virtualisation.libvirtd.enable = true;
-
   virtualisation.containers.enable = true;
   virtualisation.podman.enable = true;
 
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
 }
