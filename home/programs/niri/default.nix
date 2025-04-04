@@ -5,6 +5,7 @@
   home.file.".config/wallpaper/wallpaper.png".source = ./wallpaper.png;
   home.file.".config/hypr/hyprlock.conf".source = ./hyprlock.conf;
   home.file.".config/niri/lockscreen.sh".source = ./lockscreen.sh;
+  home.file.".config/niri/lockscreen.sh".executable = true;
 
   services.hyprpaper = {
     enable = true;
