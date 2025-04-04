@@ -1,15 +1,14 @@
 {
   imports = [
     ./alacritty
-    ./hyprland
     ./waybar
     ./nvim
-    ./wofi
     ./fish
     ./starship
     ./helix
     ./swaync
     ./niri
-    ./fuzzel
+    ./ghostty
+    ./anyrun
   ];
 }

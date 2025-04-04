@@ -18,17 +18,7 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    kwin-effects-forceblur = {
-      url = "github:taj-ny/kwin-effects-forceblur";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     catppuccin.url = "github:catppuccin/nix";
-
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
   };
 
@@ -36,9 +26,7 @@
     { self
     , nixpkgs
     , home-manager
-    , kwin-effects-forceblur
     , catppuccin
-    , nixos-cosmic
     , ...
     } @ inputs:
     let

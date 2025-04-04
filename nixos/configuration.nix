@@ -80,20 +80,25 @@
   services.printing.enable = true;
 
   services.avahi = {
-      enable = true;
-      nssmdns6 = true;
-      openFirewall = true;
-    };
+    enable = true;
+    nssmdns6 = true;
+    openFirewall = true;
+  };
 
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
   };
 
+  # Desktop
+  programs.niri.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
 
-  # need to install hyprland system wide to make it appear on display managers
-  programs.hyprland.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "fr";
@@ -101,7 +106,6 @@
 
 
   # Sound configuration
-  sound.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -131,8 +135,12 @@
     '';
   };
 
-  programs.steam.enable = true;
+  # Slow "generating man cache" with fish
+  documentation.man.generateCaches = false;
 
+
+
+  programs.steam.enable = true;
 
   services.gvfs.enable = true;
 
@@ -171,13 +179,11 @@
     cachix
     distrobox
     xdg-desktop-portal-gtk
-    niri
-    (catppuccin-kde.override { flavour = [ "mocha" ]; })
-    inputs.kwin-effects-forceblur.packages.${pkgs.system}.default
   ];
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "FiraCode" "DroidSansMono" "Monaspace" "Noto" ]; })
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
     font-awesome
     roboto
     hack-font
@@ -185,7 +191,6 @@
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
-
 
   programs.ssh.startAgent = true;
   # This setups a SSH server. Very important if you're setting up a headless system.

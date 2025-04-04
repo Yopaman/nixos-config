@@ -8,7 +8,7 @@
 }: {
   # You can import other home-manager modules here
   imports = [
-    inputs.catppuccin.homeManagerModules.catppuccin
+    inputs.catppuccin.homeModules.catppuccin
     ./programs
   ];
 
@@ -34,42 +34,30 @@
     obs-studio
 
     # Social
-    discord
     vesktop
     thunderbird
 
     # Dev
-    alacritty
-    wezterm
     zed-editor
-    godot_4
     qemu
-    neovide
     imhex
 
     # Games
     prismlauncher
 
-    # Latex
-    texliveSmall
-
     # Desktop
-    xfce.thunar
-    wofi
-    fuzzel
     hyprlock
     swaynotificationcenter
     networkmanagerapplet
     nwg-displays
-    avizo
-    hyprcursor
-    gparted
+    xwayland-satellite
+    anyrun
+    waybar
 
     # Editors
     helix
 
     # Programming Languages
-    # ---------------------
     rustup
     go
     nodejs_20
@@ -78,11 +66,9 @@
     clang-tools
     gcc
     gnumake
-    racket
     nodePackages.eslint
 
     # Command Line Programs
-    # ---------------------
     fastfetch
     ffmpeg
     slurp
@@ -112,15 +98,6 @@
     package = pkgs.catppuccin-cursors.mochaLavender;
     name = "Catppuccin-Mocha-Lavender-Cursors";
   };
-
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      catppuccin.catppuccin-vsc
-      vscodevim.vim
-    ];
-  };
-
 
   # Nicely reload system units when changing configs
   # systemd.user.startServices = "sd-switch";
