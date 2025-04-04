@@ -12,7 +12,7 @@
   ];
 
   nixpkgs = {
-    overlays = [];
+    overlays = [ ];
     config = {
       allowUnfree = true;
     };
@@ -38,7 +38,11 @@
 
   networking.networkmanager.enable = true;
   networking.wireguard.enable = true;
-  networking.firewall.checkReversePath = false;
+  networking.firewall = {
+    enable = true;
+    checkReversePath = false;
+    allowedTCPPorts = [ 1337 ];
+  };
 
   time.timeZone = "Europe/Paris";
 
@@ -62,8 +66,8 @@
   services.gvfs.enable = true;
 
   # Bluetooth
-  hardware.bluetooth.enable = true; 
-  hardware.bluetooth.powerOnBoot = true; 
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   # Enable OpenGL
   hardware.graphics = {
@@ -73,7 +77,7 @@
   users.users = {
     pablo = {
       isNormalUser = true;
-      openssh.authorizedKeys.keys = [];
+      openssh.authorizedKeys.keys = [ ];
       extraGroups = [ "wheel" "networkmanager" "audio" "rtkit" "libvirtd" ];
     };
   };

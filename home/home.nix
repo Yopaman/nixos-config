@@ -64,6 +64,7 @@
 
     # Editors
     helix
+    obsidian
 
     # Programming Languages
     rustup
