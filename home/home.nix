@@ -15,10 +15,6 @@
   home = {
     username = "pablo";
     homeDirectory = "/home/pablo";
-    sessionVariables = {
-      EDITOR = "nvim";
-      DISPLAY = ":0";
-    };
   };
 
   # Add stuff for your user as you see fit:

@@ -79,8 +79,9 @@
 
   environment.sessionVariables = {
     QT_QPA_PLATFORM = "wayland";
-    DISPLAY = ":1";
+    DISPLAY = ":0";
     _JAVA_AWT_WM_NONREPARENTING = "1";
+    EDITOR = "nvim";
   };
 
   services.printing.enable = true;
