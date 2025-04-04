@@ -15,6 +15,10 @@
   home = {
     username = "pablo";
     homeDirectory = "/home/pablo";
+    sessionVariables = {
+      EDITOR = "nvim";
+      DISPLAY = ":0";
+    };
   };
 
   # Add stuff for your user as you see fit:
@@ -42,6 +46,9 @@
     qemu
     imhex
 
+    # Cybersec
+    ghidra
+
     # Games
     prismlauncher
 
@@ -50,7 +57,6 @@
     swaynotificationcenter
     networkmanagerapplet
     nwg-displays
-    xwayland-satellite
     anyrun
     waybar
 
@@ -85,18 +91,20 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+  };
 
   catppuccin.enable = true;
   catppuccin.accent = "lavender";
   catppuccin.flavor = "mocha";
 
-
-  home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
-    package = pkgs.catppuccin-cursors.mochaLavender;
-    name = "Catppuccin-Mocha-Lavender-Cursors";
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
+    };
   };
 
   # Nicely reload system units when changing configs

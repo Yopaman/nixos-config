@@ -1,15 +1,6 @@
 {
   description = "Your new nix config";
 
-  nixConfig = {
-    extra-substituters = [
-      "https://cosmic.cachix.org/"
-    ];
-    extra-trusted-public-keys = [
-      "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
-    ];
-  };
-
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -18,8 +9,8 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # Catppuccin theme
     catppuccin.url = "github:catppuccin/nix";
-
   };
 
   outputs =
@@ -27,6 +18,7 @@
     , nixpkgs
     , home-manager
     , catppuccin
+    , agenix
     , ...
     } @ inputs:
     let

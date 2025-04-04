@@ -98,7 +98,8 @@
     enable = true;
     wayland.enable = true;
   };
-
+  
+  programs.xwayland.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "fr";
@@ -179,9 +180,11 @@
     cachix
     distrobox
     xdg-desktop-portal-gtk
+    xwayland-satellite
+    inputs.agenix.packages."${system}".default
   ];
 
-  fonts.packages = with pkgs; [
+    fonts.packages = with pkgs; [
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
     font-awesome
@@ -189,25 +192,25 @@
     hack-font
   ];
 
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
+    virtualisation.libvirtd.enable = true;
+    programs.virt-manager.enable = true;
 
-  programs.ssh.startAgent = true;
-  # This setups a SSH server. Very important if you're setting up a headless system.
-  # Feel free to remove if you don't need it.
-  # services.openssh = {
-  #   enable = true;
-  #   settings = {
-  #     # Forbid root login through SSH.
-  #     PermitRootLogin = "no";
-  #     # Use keys only. Remove if you want to SSH using password (not recommended)
-  #     PasswordAuthentication = false;
-  #   };
-  # };
+    programs.ssh.startAgent = true;
+    # This setups a SSH server. Very important if you're setting up a headless system.
+    # Feel free to remove if you don't need it.
+    services.openssh = {
+      enable = true;
+      settings = {
+        # Forbid root login through SSH.
+        PermitRootLogin = "no";
+        # Use keys only. Remove if you want to SSH using password (not recommended)
+        PasswordAuthentication = false;
+      };
+    };
 
-  virtualisation.containers.enable = true;
-  virtualisation.podman.enable = true;
+    virtualisation.containers.enable = true;
+    virtualisation.podman.enable = true;
 
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  system.stateVersion = "23.05";
-}
+    # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+    system.stateVersion = "23.05";
+    }
