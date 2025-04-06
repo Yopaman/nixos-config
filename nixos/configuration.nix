@@ -1,7 +1,6 @@
 { inputs
 , lib
 , config
-, pkgs
 , ...
 }: {
   # You can import other NixOS modules here

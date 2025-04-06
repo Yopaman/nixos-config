@@ -99,7 +99,6 @@
 
     # LSP, linters, ...
     gopls
-    nil
     nixd
     nixpkgs-fmt
     ccls
