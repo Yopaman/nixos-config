@@ -54,6 +54,8 @@
     smbmap
     inetutils
     openldap
+    netexec
+    kerbrute
 
 
     # Games
