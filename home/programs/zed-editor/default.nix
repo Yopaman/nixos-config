@@ -7,5 +7,8 @@
       "nix"
       "html"
     ];
+    userSettings = {
+      buffer_font_family = "JetBrainsMono Nerd Font";
+    };
   };
 }
