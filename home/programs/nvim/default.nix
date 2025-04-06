@@ -92,21 +92,5 @@
         nvim-treesitter.withAllGrammars
         nvim-treesitter-textobjects
       ];
-
-      # LSP Servers / Formatters / Linters
-      extraPackages = with pkgs; [
-        gopls
-        nil
-        nixpkgs-fmt
-        ccls
-        vscode-langservers-extracted
-        htmx-lsp
-        nodePackages_latest.typescript-language-server
-        prettierd
-        stylua
-        black
-        zls
-      ];
     };
 }
-

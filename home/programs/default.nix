@@ -16,6 +16,7 @@
     ./niri
     ./ghostty
     ./anyrun
+    ./zed-editor
   ];
 
   home.packages = with pkgs; [
@@ -38,7 +39,6 @@
     thunderbird
 
     # Dev
-    zed-editor
     qemu
     imhex
 
@@ -96,6 +96,19 @@
     pandoc
     ripgrep
     hugo
+
+    # LSP, linters, ...
+    gopls
+    nil
+    nixpkgs-fmt
+    ccls
+    vscode-langservers-extracted
+    htmx-lsp
+    nodePackages_latest.typescript-language-server
+    prettierd
+    stylua
+    black
+    zls
   ];
 
   # Enable home-manager and git
