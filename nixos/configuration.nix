@@ -44,6 +44,12 @@
     allowedTCPPorts = [ 1337 ];
   };
 
+  networking.hosts = {
+    "10.80.0.1" = [ "www.goldpharma.lan" ];
+    "192.168.1.200" = [ "intergold.lan" ];
+    "192.168.1.110" = [ "goldpharma.local" ];
+  };
+
   time.timeZone = "Europe/Paris";
 
   i18n.defaultLocale = "en_US.UTF-8";

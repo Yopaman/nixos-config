@@ -38,6 +38,7 @@
     distrobox
     xdg-desktop-portal-gtk
     xwayland-satellite
+
   ];
 
   fonts.packages = with pkgs; [
