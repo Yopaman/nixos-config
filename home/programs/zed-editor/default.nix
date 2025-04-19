@@ -8,10 +8,25 @@
     ];
     userSettings = {
       buffer_font_family = "JetBrainsMono Nerd Font";
+      languages = {
+        Nix = {
+          language_servers = [
+            "nil"
+            "!nixd"
+          ];
+          formatter = {
+            external = {
+              command = "nixfmt";
+            };
+          };
+        };
+      };
       lsp = {
-        nix = {
-          binary = {
-            path_lookup = true;
+        nil = {
+          initialization_option = {
+            formatting = {
+              command = [ "nixfmt" ];
+            };
           };
         };
       };

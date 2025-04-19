@@ -11,14 +11,19 @@
 
     # Catppuccin theme
     catppuccin.url = "github:catppuccin/nix";
+
+    # Nixvim
+    nixvim = {
+      url = "github:nix-community/nixvim";
+
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     { self
     , nixpkgs
     , home-manager
-    , catppuccin
-    , agenix
     , ...
     } @ inputs:
     let

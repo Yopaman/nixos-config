@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   programs = {
     # Fish shell
@@ -38,6 +38,15 @@
     distrobox
     xdg-desktop-portal-gtk
     xwayland-satellite
+    responder
+    overskride
+    pavucontrol
+    (inkscape-with-extensions.override {
+      inkscapeExtensions = [
+        pkgs.inkscape-extensions.inkstitch
+      ];
+    })
+
 
   ];
 

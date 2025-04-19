@@ -7,6 +7,7 @@
   # You can import other home-manager modules here
   imports = [
     inputs.catppuccin.homeModules.catppuccin
+    inputs.nixvim.homeManagerModules.nixvim
     ./programs
   ];
 
@@ -24,6 +25,15 @@
     theme = {
       name = "Adwaita-dark";
       package = pkgs.gnome-themes-extra;
+    };
+    iconTheme = {
+      name = "Adwaita"; 
+    };
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
     };
   };
 

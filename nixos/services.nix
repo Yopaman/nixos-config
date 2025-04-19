@@ -26,7 +26,7 @@
 
     gvfs.enable = true;
 
-    blueman.enable = true;
+    # blueman.enable = true;
 
     # Sound configuration
     pipewire = {

@@ -33,6 +33,8 @@
     zathura
     mpv
     obs-studio
+    audacity
+
 
     # Social
     vesktop
@@ -50,13 +52,17 @@
     john
     burpsuite
     samba
-    responder
     smbmap
     inetutils
     openldap
     netexec
     kerbrute
-
+    python312Packages.impacket
+    steghide
+    stegseek
+    zsteg
+    binwalk
+    qsstv
 
     # Games
     prismlauncher
@@ -85,6 +91,22 @@
     gnumake
     nodePackages.eslint
 
+
+    # LSP, linters, ...
+    gopls
+    nixd
+    nil
+    nixfmt-rfc-style
+    nixpkgs-fmt
+    ccls
+    vscode-langservers-extracted
+    htmx-lsp
+    nodePackages_latest.typescript-language-server
+    prettierd
+    stylua
+    black
+    zls
+
     # Command Line Programs
     fastfetch
     ffmpeg
@@ -98,19 +120,7 @@
     pandoc
     ripgrep
     hugo
-
-    # LSP, linters, ...
-    gopls
-    nixd
-    nixpkgs-fmt
-    ccls
-    vscode-langservers-extracted
-    htmx-lsp
-    nodePackages_latest.typescript-language-server
-    prettierd
-    stylua
-    black
-    zls
+    file
   ];
 
   # Enable home-manager and git
