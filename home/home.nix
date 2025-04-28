@@ -1,9 +1,11 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
-{ inputs
-, pkgs
-, ...
-}: {
+{
+  inputs,
+  pkgs,
+  ...
+}:
+{
   # You can import other home-manager modules here
   imports = [
     inputs.catppuccin.homeModules.catppuccin
@@ -27,7 +29,7 @@
       package = pkgs.gnome-themes-extra;
     };
     iconTheme = {
-      name = "Adwaita"; 
+      name = "Adwaita";
     };
   };
 

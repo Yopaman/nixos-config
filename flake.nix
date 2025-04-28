@@ -18,14 +18,18 @@
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Gdb for pwn/reverse
+    pwndbg.url = "github:pwndbg/pwndbg";
   };
 
   outputs =
-    { self
-    , nixpkgs
-    , home-manager
-    , ...
-    } @ inputs:
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
     let
       inherit (self) outputs;
     in
@@ -59,8 +63,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-
-              home-manager.backupFileExtension = "backup";
+              home-manager.backupFileExtension = "bck";
               home-manager.users.pablo = import ./home/home.nix;
               home-manager.extraSpecialArgs = { inherit inputs; };
             }

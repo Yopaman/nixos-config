@@ -22,6 +22,8 @@
     virt-manager.enable = true;
 
     ssh.startAgent = true;
+
+    nix-ld.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -46,8 +48,8 @@
         pkgs.inkscape-extensions.inkstitch
       ];
     })
-
-
+    qemu
+    docker-compose
   ];
 
   fonts.packages = with pkgs; [

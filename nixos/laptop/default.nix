@@ -18,8 +18,7 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = [ "nvidia" ];
 
-
   # Battery optimizations
-  #services.tlp.enable = true;
+  # services.tlp.enable = true;
 
 }

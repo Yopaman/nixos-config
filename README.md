@@ -1,6 +1,6 @@
 # NixOS Configuration
 
-Helloooo :3
+Hi :3 !!
 
 This repo contains my [NixOS](https://nixos.org/) configuration. It should mostly work on your machine, except for some details which are in the `nixos` directory.
 
@@ -16,9 +16,9 @@ nix run github:yopaman/nixos-config#laptop # different nvidia config and no KDE
 
 The main parts of my desktop configuration are :
 
-- WM: [Hyprland](https://hyprland.org)
+- WM: [Niri](https://github.com/YaLTeR/niri)
 - Bar: [Waybar](https://github.com/Alexays/Waybar)
-- Launcher: [Wofi](https://sr.ht/~scoopta/wofi/)
+- Launcher: [Anyrun](https://github.com/anyrun-org/anyrun)
 
 ## Screenshots
 
@@ -29,6 +29,6 @@ The main parts of my desktop configuration are :
 - nix.dev first steps: https://nix.dev/tutorials/first-steps/
 - nix starter config: https://github.com/Misterio77/nix-starter-configs
 - search home manager options: https://home-manager-options.extranix.com
-- good video about setting up neovim with nix: https://www.youtube.com/watch?v=YZAnJ0rwREA
+- nix vim : https://nix-community.github.io/nixvim/
 
 

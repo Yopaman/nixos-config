@@ -1,8 +1,9 @@
-{ inputs
-, lib
-, config
-, pkgs
-, ...
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
 }:
 {
   imports = [
@@ -25,8 +26,8 @@
 
     # Network/Internet
     firefox
-    ladybird
     qbittorrent
+    nheko
 
     # Medias
     spotify
@@ -35,17 +36,19 @@
     obs-studio
     audacity
 
-
     # Social
     vesktop
     thunderbird
 
     # Dev
-    qemu
     imhex
+    gnome-boxes
 
     # Cybersec
+    autopsy
+    sleuthkit
     ghidra
+    ida-free
     ligolo-ng
     nmap
     seclists
@@ -57,12 +60,18 @@
     openldap
     netexec
     kerbrute
-    python312Packages.impacket
     steghide
     stegseek
     zsteg
     binwalk
-    qsstv
+    binaryninja-free
+    (cutter.withPlugins (
+      ps: with ps; [
+        cutterPlugins.rz-ghidra
+      ]
+    ))
+    inputs.pwndbg.packages.${system}.default
+    volatility3
 
     # Games
     prismlauncher
@@ -75,6 +84,7 @@
     nwg-displays
     anyrun
     waybar
+    xdg-desktop-portal-gnome
 
     # Editors
     helix
@@ -85,12 +95,26 @@
     go
     nodejs_20
     zig
-    python3
+    (python312.withPackages (
+      python-pkgs: with python-pkgs; [
+        pandas
+        requests
+        pwntools
+        impacket
+        tqdm
+        pycryptodome
+        pygame
+        numpy
+        fontfeatures
+        fonttools
+        harfbuzz
+        uharfbuzz
+      ]
+    ))
     clang-tools
     gcc
     gnumake
     nodePackages.eslint
-
 
     # LSP, linters, ...
     gopls
@@ -121,6 +145,11 @@
     ripgrep
     hugo
     file
+    gdb
+    asciinema
+
+    # SDL
+    SDL2
   ];
 
   # Enable home-manager and git

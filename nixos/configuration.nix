@@ -1,8 +1,10 @@
-{ inputs
-, lib
-, config
-, ...
-}: {
+{
+  inputs,
+  lib,
+  config,
+  ...
+}:
+{
   # You can import other NixOS modules here
   imports = [
     ./programs.nix
@@ -15,26 +17,31 @@
     overlays = [ ];
     config = {
       allowUnfree = true;
+      permittedInsecurePackages = [
+        "olm-3.2.16"
+      ];
     };
   };
 
-  nix.registry = (lib.mapAttrs (_: flake: { inherit flake; })) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
+  nix.registry = (lib.mapAttrs (_: flake: { inherit flake; })) (
+    (lib.filterAttrs (_: lib.isType "flake")) inputs
+  );
 
   nix.nixPath = [ "/etc/nix/path" ];
-  environment.etc =
-    lib.mapAttrs'
-      (name: value: {
-        name = "nix/path/${name}";
-        value.source = value.flake;
-      })
-      config.nix.registry;
+  environment.etc = lib.mapAttrs' (name: value: {
+    name = "nix/path/${name}";
+    value.source = value.flake;
+  }) config.nix.registry;
 
   nix.settings = {
     experimental-features = "nix-command flakes";
     auto-optimise-store = true;
   };
 
-  nix.settings.trusted-users = [ "root" "pablo" ];
+  nix.settings.trusted-users = [
+    "root"
+    "pablo"
+  ];
 
   time.timeZone = "Europe/Paris";
 
@@ -69,13 +76,24 @@
     pablo = {
       isNormalUser = true;
       openssh.authorizedKeys.keys = [ ];
-      extraGroups = [ "wheel" "networkmanager" "audio" "rtkit" "libvirtd" ];
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+        "audio"
+        "rtkit"
+        "libvirtd"
+        "vboxusers"
+      ];
     };
   };
 
   virtualisation.libvirtd.enable = true;
+  virtualisation.virtualbox.host.enable = true;
   virtualisation.containers.enable = true;
   virtualisation.podman.enable = true;
+  virtualisation.docker.enable = true;
+
+  boot.binfmt.emulatedSystems = [ "mips-linux" ];
 
   system.stateVersion = "23.05";
 }
