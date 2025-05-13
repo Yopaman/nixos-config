@@ -1,5 +1,6 @@
 {
   inputs,
+  pkgs,
   lib,
   config,
   ...
@@ -10,7 +11,7 @@
     ./programs.nix
     ./services.nix
     ./networking.nix
-    inputs.home-manager.nixosModules.home-manager
+    inputs.lix-module.nixosModules.default
   ];
 
   nixpkgs = {
@@ -87,7 +88,7 @@
     };
   };
 
-  virtualisation.libvirtd.enable = true;
+  # virtualisation.libvirtd.enable = true;
   virtualisation.virtualbox.host.enable = true;
   virtualisation.containers.enable = true;
   virtualisation.podman.enable = true;

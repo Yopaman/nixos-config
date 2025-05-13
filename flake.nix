@@ -21,6 +21,11 @@
 
     # Gdb for pwn/reverse
     pwndbg.url = "github:pwndbg/pwndbg";
+
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -34,39 +39,28 @@
       inherit (self) outputs;
     in
     {
-      # NixOS configuration entrypoint
-      # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          # > Our main nixos configuration file <
           modules = [
             ./nixos/desktop
             ./nixos/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.backupFileExtension = "backup";
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.pablo = import ./home/home.nix;
-              home-manager.extraSpecialArgs = { inherit inputs; };
-            }
           ];
         };
         laptop = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          # > Our main nixos configuration file <
           modules = [
             ./nixos/laptop
             ./nixos/configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "bck";
-              home-manager.users.pablo = import ./home/home.nix;
-              home-manager.extraSpecialArgs = { inherit inputs; };
-            }
+          ];
+        };
+      };
+      homeConfigurations = {
+        "pablo" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./home/home.nix
           ];
         };
       };

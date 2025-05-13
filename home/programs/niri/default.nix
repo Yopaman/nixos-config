@@ -1,4 +1,9 @@
-{ pkgs, config, niri, ... }:
+{
+  pkgs,
+  config,
+  niri,
+  ...
+}:
 
 {
   home.file.".config/niri/config.kdl".source = ./config.kdl;

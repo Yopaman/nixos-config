@@ -19,12 +19,16 @@
 
     desktopManager.plasma6.enable = true;
 
+    desktopManager.cosmic.enable = true;
+
     displayManager.sddm = {
       enable = true;
       wayland.enable = true;
     };
 
     gvfs.enable = true;
+
+    neo4j.enable = true;
 
     # blueman.enable = true;
 
@@ -46,16 +50,15 @@
       ];
     };
 
-    openssh = {
-      enable = true;
-      settings = {
-        # Forbid root login through SSH.
-        PermitRootLogin = "no";
-        # Use keys only. Remove if you want to SSH using password (not recommended)
-        PasswordAuthentication = false;
-      };
-    };
-
+    # openssh = {
+    #   enable = true;
+    #   settings = {
+    #     # Forbid root login through SSH.
+    #     PermitRootLogin = "no";
+    #     # Use keys only. Remove if you want to SSH using password (not recommended)
+    #     PasswordAuthentication = false;
+    #   };
+    # };
 
   };
 }

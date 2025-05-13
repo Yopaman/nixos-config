@@ -28,6 +28,7 @@
     firefox
     qbittorrent
     nheko
+    rdesktop
 
     # Medias
     spotify
@@ -43,6 +44,7 @@
     # Dev
     imhex
     gnome-boxes
+    bettercap
 
     # Cybersec
     autopsy
@@ -52,6 +54,14 @@
     ligolo-ng
     nmap
     seclists
+    (wordlists.override {
+      lists = with pkgs; [
+        rockyou
+        seclists
+        dirb
+        dirbuster
+      ];
+    })
     john
     burpsuite
     samba
@@ -72,6 +82,11 @@
     ))
     inputs.pwndbg.packages.${system}.default
     volatility3
+    bloodhound
+    chisel
+    proxychains
+    hashcat
+    wireshark
 
     # Games
     prismlauncher
@@ -89,6 +104,7 @@
     # Editors
     helix
     obsidian
+    notion-app-enhanced
 
     # Programming Languages
     rustup
@@ -109,6 +125,7 @@
         fonttools
         harfbuzz
         uharfbuzz
+        pyinstaller
       ]
     ))
     clang-tools

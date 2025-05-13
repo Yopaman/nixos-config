@@ -48,8 +48,9 @@
         pkgs.inkscape-extensions.inkstitch
       ];
     })
-    qemu
     docker-compose
+    dnsproxy
+    home-manager
   ];
 
   fonts.packages = with pkgs; [
