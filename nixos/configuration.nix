@@ -11,62 +11,44 @@
     ./programs.nix
     ./services.nix
     ./networking.nix
-    inputs.lix-module.nixosModules.default
   ];
-
-  nixpkgs = {
-    overlays = [ ];
-    config = {
-      allowUnfree = true;
-      permittedInsecurePackages = [
-        "olm-3.2.16"
-      ];
-    };
-  };
-
-  nix.registry = (lib.mapAttrs (_: flake: { inherit flake; })) (
-    (lib.filterAttrs (_: lib.isType "flake")) inputs
-  );
-
-  nix.nixPath = [ "/etc/nix/path" ];
-  environment.etc = lib.mapAttrs' (name: value: {
-    name = "nix/path/${name}";
-    value.source = value.flake;
-  }) config.nix.registry;
 
   nix.settings = {
     experimental-features = "nix-command flakes";
     auto-optimise-store = true;
   };
 
-  nix.settings.trusted-users = [
-    "root"
-    "pablo"
-  ];
+  nixpkgs.config.allowUnfree = true;
 
+  # Set your time zone.
   time.timeZone = "Europe/Paris";
 
+  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    font = "Lat2-Terminus16";
-    useXkbConfig = true; # use xkb.options in tty.
-  };
 
-  environment.sessionVariables = {
-    # QT_QPA_PLATFORM = "wayland";
-    # DISPLAY = ":0";
-    # _JAVA_AWT_WM_NONREPARENTING = "1";
-    EDITOR = "nvim";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "fr_FR.UTF-8";
+    LC_IDENTIFICATION = "fr_FR.UTF-8";
+    LC_MEASUREMENT = "fr_FR.UTF-8";
+    LC_MONETARY = "fr_FR.UTF-8";
+    LC_NAME = "fr_FR.UTF-8";
+    LC_NUMERIC = "fr_FR.UTF-8";
+    LC_PAPER = "fr_FR.UTF-8";
+    LC_TELEPHONE = "fr_FR.UTF-8";
+    LC_TIME = "fr_FR.UTF-8";
   };
 
   # Slow "generating man cache" with fish
-  documentation.man.generateCaches = false;
+  documentation.man.cache.enable = false;
 
-  services.gvfs.enable = true;
+  # Configure console keymap
+  console.keyMap = "fr";
 
   # Bluetooth
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = false;
+  };
 
   # Enable OpenGL
   hardware.graphics = {
@@ -88,8 +70,7 @@
     };
   };
 
-  # virtualisation.libvirtd.enable = true;
-  virtualisation.virtualbox.host.enable = true;
+  virtualisation.libvirtd.enable = true;
   virtualisation.containers.enable = true;
   virtualisation.podman.enable = true;
   virtualisation.docker.enable = true;

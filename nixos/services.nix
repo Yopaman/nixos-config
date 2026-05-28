@@ -9,28 +9,15 @@
       openFirewall = true;
     };
 
-    xserver = {
-      enable = true;
-      xkb = {
-        layout = "fr";
-        options = "eurosign:e, caps:escape";
-      };
+    # Configure keymap in X11
+    xserver.xkb = {
+      layout = "fr";
+      variant = "oss";
     };
 
+    # Enable the KDE Plasma Desktop Environment.
+    displayManager.plasma-login-manager.enable = true;
     desktopManager.plasma6.enable = true;
-
-    desktopManager.cosmic.enable = true;
-
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
-
-    gvfs.enable = true;
-
-    neo4j.enable = true;
-
-    # blueman.enable = true;
 
     # Sound configuration
     pipewire = {
@@ -49,16 +36,5 @@
           	'')
       ];
     };
-
-    # openssh = {
-    #   enable = true;
-    #   settings = {
-    #     # Forbid root login through SSH.
-    #     PermitRootLogin = "no";
-    #     # Use keys only. Remove if you want to SSH using password (not recommended)
-    #     PasswordAuthentication = false;
-    #   };
-    # };
-
   };
 }

@@ -8,15 +8,10 @@
 {
   # You can import other home-manager modules here
   imports = [
-    inputs.catppuccin.homeModules.catppuccin
-    inputs.nixvim.homeManagerModules.nixvim
     ./programs
   ];
 
   nixpkgs.config = {
-    permittedInsecurePackages = [
-      "olm-3.2.16"
-    ];
     allowUnfree = true;
   };
 
@@ -24,11 +19,6 @@
     username = "pablo";
     homeDirectory = "/home/pablo";
   };
-
-  catppuccin.enable = true;
-  catppuccin.accent = "lavender";
-  catppuccin.flavor = "mocha";
-  catppuccin.mako.enable = false;
 
   gtk = {
     enable = true;

@@ -18,14 +18,6 @@
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Gdb for pwn/reverse
-    pwndbg.url = "github:pwndbg/pwndbg";
-
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.0.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =

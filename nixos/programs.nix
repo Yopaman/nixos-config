@@ -13,10 +13,6 @@
       '';
     };
 
-    # Desktop
-    niri.enable = true;
-    xwayland.enable = true;
-
     steam.enable = true;
 
     virt-manager.enable = true;
@@ -24,6 +20,15 @@
     ssh.startAgent = true;
 
     nix-ld.enable = true;
+
+    firefox.enable = true;
+
+    nh = {
+    enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+      flake = "/home/user/nixos-config"; # sets NH_OS_FLAKE variable for you
+    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -32,22 +37,11 @@
     curl
     efibootmgr
     git
-    inotify-tools
     killall
     pamixer
-    libmpc
     cachix
     distrobox
-    xdg-desktop-portal-gtk
-    xwayland-satellite
-    responder
-    overskride
     pavucontrol
-    (inkscape-with-extensions.override {
-      inkscapeExtensions = [
-        pkgs.inkscape-extensions.inkstitch
-      ];
-    })
     docker-compose
     dnsproxy
     home-manager
