@@ -62,7 +62,6 @@
   users.users = {
     pablo = {
       isNormalUser = true;
-      openssh.authorizedKeys.keys = [ ];
       extraGroups = [
         "wheel"
         "networkmanager"

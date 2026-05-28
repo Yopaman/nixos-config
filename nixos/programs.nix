@@ -5,13 +5,13 @@
     fish.enable = true;
     bash = {
       interactiveShellInit = ''
-        if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
-        then
-          shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
-          exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+        # "check if parent process is not fish" && "make nested shells work properly"
+        if grep -qv fish /proc/$PPID/comm && [[ $SHLVL == [12] ]]; then
+            # set $SHELL for better integration with programs like nix shell, tmux, etc.
+            SHELL=${pkgs.fish}/bin/fish exec fish
         fi
       '';
-    };
+    };    
 
     steam.enable = true;
 
@@ -24,7 +24,7 @@
     firefox.enable = true;
 
     nh = {
-    enable = true;
+      enable = true;
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 3";
       flake = "/home/user/nixos-config"; # sets NH_OS_FLAKE variable for you
