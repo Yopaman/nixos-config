@@ -13,9 +13,13 @@
     ./networking.nix
   ];
 
-  nix.settings = {
-    experimental-features = "nix-command flakes";
-    auto-optimise-store = true;
+  nix = {
+    # enable lix
+    package = pkgs.lixPackageSets.stable.lix;
+    settings = {
+      experimental-features = "nix-command flakes";
+      auto-optimise-store = true;
+    };  
   };
 
   nixpkgs.config.allowUnfree = true;
