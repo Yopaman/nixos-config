@@ -15,26 +15,24 @@
     allowUnfree = true;
   };
 
+  stylix = {
+    enable = true;
+
+    base16Scheme =
+      "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+
+    polarity = "dark";
+    autoEnable = false;
+    targets = {
+      helix.enable = true;
+      ghostty.enable = true;
+      fish.enable = true;
+    };
+  };
+
   home = {
     username = "pablo";
     homeDirectory = "/home/pablo";
-  };
-
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Adwaita-dark";
-      package = pkgs.gnome-themes-extra;
-    };
-    iconTheme = {
-      name = "Adwaita";
-    };
-  };
-
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-    };
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

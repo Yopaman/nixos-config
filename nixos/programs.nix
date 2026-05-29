@@ -29,18 +29,128 @@
       clean.extraArgs = "--keep-since 4d --keep 3";
       flake = "/home/user/nixos-config"; # sets NH_OS_FLAKE variable for you
     };
+
+    git.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
+    # Network/Internet
+    qbittorrent
+
+    # Medias
+    spotify
+    zathura
+    mpv
+    obs-studio
+    audacity
+
+    # Social
+    vesktop
+    thunderbird
+
+    # Cybersec
+    autopsy
+    sleuthkit
+    ghidra
+    #ida-free
+    ligolo-ng
+    nmap
+    (wordlists.override {
+      lists = with pkgs; [
+        rockyou
+        seclists
+        dirb
+        dirbuster
+      ];
+    })
+    john
+    imhex
+    burpsuite
+    samba
+    smbmap
+    inetutils
+    openldap
+    netexec
+    kerbrute
+    steghide
+    stegseek
+    zsteg
+    binwalk
+    binaryninja-free
+    volatility3
+    bloodhound
+    chisel
+    proxychains
+    hashcat
+    wireshark
+
+    # Games
+    prismlauncher
+
+    # Editors
+    obsidian
     vim
+
+    # Programming Languages
+    rustup
+    go
+    zig
+    (python3.withPackages (
+      python-pkgs: with python-pkgs; [
+        pandas
+        requests
+        pwntools
+        impacket
+        tqdm
+        pycryptodome
+        pygame
+        numpy
+        fontfeatures
+        fonttools
+        harfbuzz
+        uharfbuzz
+        pyinstaller
+      ]
+    ))
+    clang-tools
+    gcc
+    gnumake
+
+    # LSP, linters, ...
+    gopls
+    nixd
+    nil
+    nixfmt-rfc-style
+    nixpkgs-fmt
+    ccls
+    vscode-langservers-extracted
+    htmx-lsp
+    typescript-language-server
+    prettierd
+    stylua
+    black
+    zls
+    eslint
+
+    # Command Line Programs
+    fastfetch
+    distrobox
+    ffmpeg
+    yt-dlp
+    wl-clipboard
+    btop
+    eza
+    pandoc
+    ripgrep
+    file
+    gdb
+    asciinema
     wget
     curl
     efibootmgr
-    git
     killall
     pamixer
     cachix
-    distrobox
     pavucontrol
     docker-compose
     dnsproxy

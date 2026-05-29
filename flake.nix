@@ -9,22 +9,26 @@
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Catppuccin theme
-    catppuccin.url = "github:catppuccin/nix";
-
     # Nixvim
     nixvim = {
       url = "github:nix-community/nixvim";
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  };
+
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+     };
 
   outputs =
     {
       self,
       nixpkgs,
       home-manager,
+      stylix,
       ...
     }@inputs:
     let
@@ -42,6 +46,7 @@
         laptop = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
+            stylix.nixosModules.stylix
             ./nixos/laptop
             ./nixos/configuration.nix
           ];
@@ -52,6 +57,7 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
+            stylix.homeModules.stylix
             ./home/home.nix
           ];
         };

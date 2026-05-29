@@ -1,4 +1,4 @@
-{
+{ lib, ... }:{
   programs.zed-editor = {
     enable = true;
     extensions = [
@@ -7,7 +7,7 @@
       "html"
     ];
     userSettings = {
-      buffer_font_family = "JetBrainsMono Nerd Font";
+      buffer_font_family = lib.mkDefault "JetBrainsMono Nerd Font";
       languages = {
         Nix = {
           language_servers = [
