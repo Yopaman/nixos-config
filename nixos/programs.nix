@@ -11,7 +11,7 @@
             SHELL=${pkgs.fish}/bin/fish exec fish
         fi
       '';
-    };    
+    };
 
     steam.enable = true;
     gamemode.enable = true; # Improve game performances
@@ -121,7 +121,7 @@
     gopls
     nixd
     nil
-    nixfmt-rfc-style
+    nixfmt
     nixpkgs-fmt
     ccls
     vscode-langservers-extracted
@@ -138,6 +138,8 @@
     distrobox
     ffmpeg
     yt-dlp
+    comma
+    nix-index
     wl-clipboard
     btop
     eza
