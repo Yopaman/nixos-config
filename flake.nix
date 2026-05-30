@@ -6,13 +6,14 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/master";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Nixvim
     nixvim = {
       url = "github:nix-community/nixvim";
-
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -39,6 +40,7 @@
         desktop = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
+            stylix.nixosModules.stylix
             ./nixos/desktop
             ./nixos/configuration.nix
           ];

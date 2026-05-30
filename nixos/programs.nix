@@ -14,6 +14,7 @@
     };    
 
     steam.enable = true;
+    gamemode.enable = true; # Improve game performances
 
     virt-manager.enable = true;
 
