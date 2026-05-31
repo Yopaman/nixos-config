@@ -85,6 +85,7 @@
     proxychains
     hashcat
     wireshark
+    bettercap
 
     # Games
     prismlauncher
@@ -112,6 +113,7 @@
         harfbuzz
         uharfbuzz
         pyinstaller
+        scapy
       ]
     ))
     clang-tools
