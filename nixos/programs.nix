@@ -55,6 +55,7 @@
     ghidra
     #ida-free
     ligolo-ng
+    avalonia-ilspy
     nmap
     (wordlists.override {
       lists = with pkgs; [
@@ -148,6 +149,7 @@
     file
     gdb
     asciinema
+    wine
     wget
     curl
     efibootmgr
@@ -158,6 +160,9 @@
     docker-compose
     dnsproxy
     home-manager
+    zip
+    unzip
+    rar
   ];
 
   fonts.packages = with pkgs; [

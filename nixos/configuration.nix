@@ -19,20 +19,17 @@
     settings = {
       experimental-features = "nix-command flakes";
       auto-optimise-store = true;
-    };  
+    };
   };
 
   stylix = {
     enable = true;
 
-    base16Scheme =
-      "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
     polarity = "dark";
     autoEnable = false;
   };
-
-  
 
   nixpkgs.config.allowUnfree = true;
 
@@ -85,7 +82,14 @@
     };
   };
 
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd = {
+    enable = true;
+
+    qemu = {
+      package = pkgs.qemu_kvm;
+      swtpm.enable = true;
+    };
+  };
   virtualisation.containers.enable = true;
   virtualisation.podman.enable = true;
   virtualisation.docker.enable = true;
