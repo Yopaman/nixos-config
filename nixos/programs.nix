@@ -166,6 +166,7 @@
     zip
     unzip
     rar
+    rivalcfg
   ];
 
   fonts.packages = with pkgs; [
