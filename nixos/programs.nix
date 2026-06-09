@@ -40,6 +40,7 @@
 
     # Medias
     spotify
+    librespot
     zathura
     mpv
     obs-studio
