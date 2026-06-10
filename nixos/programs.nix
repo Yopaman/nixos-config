@@ -167,6 +167,7 @@
     unzip
     rar
     rivalcfg
+    netbird
   ];
 
   fonts.packages = with pkgs; [

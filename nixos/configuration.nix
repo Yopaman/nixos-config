@@ -78,6 +78,7 @@
         "rtkit"
         "libvirtd"
         "vboxusers"
+        "input"
       ];
     };
   };
