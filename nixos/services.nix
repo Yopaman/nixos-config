@@ -36,5 +36,7 @@
           	'')
       ];
     };
+
+    netbird.enable = true;
   };
 }
