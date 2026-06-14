@@ -61,6 +61,7 @@
 
     # Desktop
     xwayland-satellite
+    nomacs
 
     # Cybersec
     autopsy
