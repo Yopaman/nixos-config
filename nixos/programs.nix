@@ -18,11 +18,13 @@
 
     virt-manager.enable = true;
 
-    ssh.startAgent = true;
+    # ssh.startAgent = true;
 
     nix-ld.enable = true;
 
     firefox.enable = true;
+
+    niri.enable = true;
 
     nh = {
       enable = true;
@@ -50,9 +52,6 @@
     mpv
     obs-studio
     audacity
-
-    # Desktop
-    niri
 
     # Social
     vesktop
