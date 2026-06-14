@@ -25,6 +25,7 @@
       helix.enable = true;
       ghostty.enable = true;
       fish.enable = true;
+      gtk.enable = true;
     };
   };
 

@@ -59,6 +59,9 @@
     vesktop
     thunderbird
 
+    # Desktop
+    xwayland-satellite
+
     # Cybersec
     autopsy
     sleuthkit
