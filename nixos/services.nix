@@ -37,6 +37,11 @@
       ];
     };
 
-    netbird.enable = true;
+
+    netbird= {
+      enable = true;
+    };
+
+    resolved.enable = true;
   };
 }
