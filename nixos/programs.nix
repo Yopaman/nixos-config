@@ -32,6 +32,11 @@
     };
 
     git.enable = true;
+
+    wireshark = {
+      enable = true;
+      dumpcap.enable = true;
+    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -168,6 +173,8 @@
     rar
     rivalcfg
     netbird
+    claude-code
+    sqlite
   ];
 
   fonts.packages = with pkgs; [
