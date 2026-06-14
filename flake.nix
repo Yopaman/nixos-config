@@ -20,6 +20,11 @@
       url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -29,6 +34,7 @@
       home-manager,
       stylix,
       noctalia,
+      nix-index-database,
       ...
     }@inputs:
     let
@@ -40,6 +46,7 @@
           specialArgs = { inherit inputs outputs; };
           modules = [
             stylix.nixosModules.stylix
+            nix-index-database.nixosModules.default
             ./nixos/desktop
             ./nixos/configuration.nix
           ];
@@ -48,6 +55,7 @@
           specialArgs = { inherit inputs outputs; };
           modules = [
             stylix.nixosModules.stylix
+            nix-index-database.nixosModules.default
             ./nixos/laptop
             ./nixos/configuration.nix
           ];

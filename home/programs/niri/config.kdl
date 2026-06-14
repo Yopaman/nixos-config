@@ -167,18 +167,9 @@ layout {
 // Startup processes.
 spawn-at-startup "noctalia"
 
-// >>> NEW: spawn-sh-at-startup runs a command through `sh -c` (pipes, vars, etc.):
-// spawn-sh-at-startup "qs -c ~/source/qs/MyShell"
-
 prefer-no-csd
 
-// >>> NEW: control the "Important Hotkeys" pop-up.
-hotkey-overlay {
-    // skip-at-startup
-}
-
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-// screenshot-path null
 
 animations {
     // off
@@ -214,7 +205,6 @@ window-rule {
     open-floating true
 }
 
-// >>> NEW (suggestion): float Firefox's Picture-in-Picture player.
 // Matches both host ("firefox") and Flatpak ("org.mozilla.firefox").
 /-window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
@@ -241,7 +231,7 @@ layer-rule {
 }
 
 switch-events {
-  lid-close { spawn "hyprlock"; }
+  lid-close { spawn "noctalia" "msg" "session" "lock"; }
 }
 
 
@@ -251,7 +241,7 @@ binds {
     // Suggested binds for running programs.
     Mod+Return { spawn "ghostty"; }
     Mod+Shift+Return { spawn "ghostty" "--class=my.float"; }
-    Mod+D { spawn "anyrun"; }
+    Mod+D { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
@@ -365,14 +355,10 @@ binds {
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
 
-    Mod+L { spawn "~/.config/niri/lockscreen.sh"; }
+    Mod+L { spawn "noctalia" "msg" "session" "lock"; }
 
     Mod+Shift+E { quit; }
     Mod+Shift+P { power-off-monitors; }
-
-    // ============================================================
-    // >>> NEW NIRI FEATURES (added on free keybinds)
-    // ============================================================
 
     // Overview: zoomed-out view of all workspaces and windows.
     // Also reachable via the top-left hot corner or a four-finger swipe up.
@@ -406,18 +392,4 @@ binds {
     // Keyboard shortcuts inhibitor (useful for RDP / software KVM clients).
     // allow-inhibiting=false guarantees this escape hatch always works.
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
-
-    // Alternative quit bind.
-    Ctrl+Alt+Delete { quit; }
-
-    // Optional example media keys (need playerctl, MPRIS-aware players).
-    // XF86AudioPlay  allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    // XF86AudioPause allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    // XF86AudioStop  allow-when-locked=true { spawn-sh "playerctl stop"; }
-    // XF86AudioPrev  allow-when-locked=true { spawn-sh "playerctl previous"; }
-    // XF86AudioNext  allow-when-locked=true { spawn-sh "playerctl next"; }
-
-    // Optional brightness keys (need brightnessctl).
-    // XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
-    // XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 }

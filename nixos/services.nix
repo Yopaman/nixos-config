@@ -37,7 +37,6 @@
       ];
     };
 
-
     netbird= {
       enable = true;
     };

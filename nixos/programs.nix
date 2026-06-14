@@ -39,6 +39,8 @@
       enable = true;
       dumpcap.enable = true;
     };
+
+    nix-index-database.comma.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -149,8 +151,6 @@
     distrobox
     ffmpeg
     yt-dlp
-    comma
-    nix-index
     wl-clipboard
     btop
     eza
@@ -177,6 +177,7 @@
     netbird
     claude-code
     sqlite
+    evtest
   ];
 
   fonts.packages = with pkgs; [
