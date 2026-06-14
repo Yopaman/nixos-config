@@ -51,6 +51,9 @@
     obs-studio
     audacity
 
+    # Desktop
+    niri
+
     # Social
     vesktop
     thunderbird
