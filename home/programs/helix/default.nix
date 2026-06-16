@@ -9,6 +9,13 @@
         normal = "block";
         select = "underline";
       };
-    };
+          };
+
+languages.language = [
+        {
+          name = "nix";
+          auto-format = true;
+        }
+      ];
   };
 }
