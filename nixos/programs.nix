@@ -107,7 +107,7 @@
     # Editors
     obsidian
     vim
-    jetbrains.idea-community
+    jetbrains.idea
 
     # Programming Languages
     rustup
