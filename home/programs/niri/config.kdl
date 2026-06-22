@@ -177,11 +177,6 @@ animations {
 }
 
 // Named workspaces
-workspace "1"
-workspace "2"
-workspace "3"
-workspace "4"
-workspace "5"
 workspace "browser"
 workspace "discord"
 
@@ -317,18 +312,8 @@ binds {
     Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
     // AZERTY number row workspace switching.
-    Mod+ampersand { focus-workspace "1"; }
-    Mod+eacute { focus-workspace "2"; }
-    Mod+quotedbl { focus-workspace "3"; }
-    Mod+apostrophe { focus-workspace "4"; }
-    Mod+parenleft { focus-workspace "5"; }
     Mod+w { focus-workspace "browser"; }
     Mod+x { focus-workspace "discord"; }
-    Mod+Shift+ampersand { move-column-to-workspace "1"; }
-    Mod+Shift+eacute { move-column-to-workspace "2"; }
-    Mod+Shift+quotedbl { move-column-to-workspace "3"; }
-    Mod+Shift+apostrophe { move-column-to-workspace "4"; }
-    Mod+Shift+parenleft { move-column-to-workspace "5"; }
     Mod+Shift+w { move-column-to-workspace "browser"; }
     Mod+Shift+x { move-column-to-workspace "discord"; }
 

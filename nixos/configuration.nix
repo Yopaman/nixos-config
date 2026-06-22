@@ -80,6 +80,7 @@
         "vboxusers"
         "input"
       ];
+      shell = pkgs.fish;
     };
   };
 

@@ -13,25 +13,15 @@
       '';
     };
 
+    # Gaming
     steam.enable = true;
     gamemode.enable = true; # Improve game performances
 
     virt-manager.enable = true;
 
-    # ssh.startAgent = true;
-
-    nix-ld.enable = true;
-
     firefox.enable = true;
 
     niri.enable = true;
-
-    nh = {
-      enable = true;
-      clean.enable = true;
-      clean.extraArgs = "--keep-since 4d --keep 3";
-      flake = "/home/user/nixos-config"; # sets NH_OS_FLAKE variable for you
-    };
 
     git.enable = true;
 
@@ -40,7 +30,16 @@
       dumpcap.enable = true;
     };
 
+    # nixos related
     nix-index-database.comma.enable = true;
+    direnv.enable = true;
+    nix-ld.enable = true;
+    nh = {
+      enable = true;
+      clean.enable = true;
+      clean.extraArgs = "--keep-since 4d --keep 3";
+      flake = "/home/user/nixos-config"; # sets NH_OS_FLAKE variable for you
+    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -62,6 +61,7 @@
     # Desktop
     xwayland-satellite
     nomacs
+    nautilus
 
     # Cybersec
     autopsy
@@ -108,6 +108,14 @@
     obsidian
     vim
     jetbrains.idea
+    blockbench
+
+    libglvnd
+    libpulseaudio
+    libGL
+    glfw
+    openal
+    stdenv.cc.cc.lib
 
     # Programming Languages
     rustup
