@@ -1,6 +1,15 @@
 {
   description = "Your new nix config";
 
+  nixConfig = {
+    extra-substituers = [
+      "https://noctalia.cachix.org"
+    ];
+    extra-trusted-upblic-keys = [
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+    ];
+  };
+
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -17,8 +26,8 @@
     };
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:noctalia-dev/noctalia/cachix";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-index-database = {

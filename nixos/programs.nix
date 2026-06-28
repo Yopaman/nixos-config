@@ -59,10 +59,15 @@
     vesktop
     thunderbird
 
+    # Emulators
+    mesen
+
     # Desktop
     xwayland-satellite
     nomacs
     nautilus
+    mcontrolcenter
+    veracrypt
 
     # Cybersec
     autopsy
@@ -101,6 +106,7 @@
     hashcat
     wireshark
     bettercap
+    autopsy
 
     # Games
     prismlauncher
@@ -143,6 +149,7 @@
     clang-tools
     gcc
     gnumake
+    perl
 
     # LSP, linters, ...
     gopls

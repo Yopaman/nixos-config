@@ -7,7 +7,10 @@
     firewall = {
       enable = true;
       checkReversePath = false;
-      allowedTCPPorts = [  ];
+      allowedTCPPorts = [
+        8888
+        11601
+      ];
     };
   };
 
