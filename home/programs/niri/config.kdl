@@ -312,6 +312,24 @@ binds {
     Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
 
     // AZERTY number row workspace switching.
+    Mod+ampersand  { focus-workspace 1; }
+    Mod+eacute     { focus-workspace 2; }
+    Mod+quotedbl   { focus-workspace 3; }
+    Mod+apostrophe { focus-workspace 4; }
+    Mod+parenleft  { focus-workspace 5; }
+    Mod+minus      { focus-workspace 6; }
+    Mod+egrave     { focus-workspace 7; }
+    Mod+underscore { focus-workspace 8; }
+    Mod+ccedilla   { focus-workspace 9; }
+    Mod+Ctrl+ampersand  { move-column-to-workspace 1; }
+    Mod+Ctrl+eacute     { move-column-to-workspace 2; }
+    Mod+Ctrl+quotedbl   { move-column-to-workspace 3; }
+    Mod+Ctrl+apostrophe { move-column-to-workspace 4; }
+    Mod+Ctrl+parenleft  { move-column-to-workspace 5; }
+    Mod+Ctrl+minus      { move-column-to-workspace 6; }
+    Mod+Ctrl+egrave     { move-column-to-workspace 7; }
+    Mod+Ctrl+underscore { move-column-to-workspace 8; }
+    Mod+Ctrl+ccedilla   { move-column-to-workspace 9; }
     Mod+w { focus-workspace "browser"; }
     Mod+x { focus-workspace "discord"; }
     Mod+Shift+w { move-column-to-workspace "browser"; }

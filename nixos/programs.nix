@@ -53,6 +53,7 @@
     mpv
     obs-studio
     audacity
+    kdePackages.kdenlive
 
     # Social
     vesktop
