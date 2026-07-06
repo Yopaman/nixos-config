@@ -73,7 +73,7 @@
     autopsy
     sleuthkit
     ghidra
-    #ida-free
+    ida-free
     ligolo-ng
     avalonia-ilspy
     nmap
@@ -131,6 +131,7 @@
     (python3.withPackages (
       python-pkgs: with python-pkgs; [
         pandas
+        capstone
         requests
         pwntools
         impacket
@@ -150,6 +151,8 @@
     gcc
     gnumake
     perl
+    nodejs
+    pnpm
 
     # LSP, linters, ...
     gopls
@@ -168,6 +171,7 @@
     eslint
 
     # Command Line Programs
+    (pkgs.callPackage ./../packages/zine-ssg.nix { })
     fastfetch
     distrobox
     ffmpeg

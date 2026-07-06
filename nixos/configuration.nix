@@ -95,6 +95,7 @@
   virtualisation.containers.enable = true;
   virtualisation.podman.enable = true;
   virtualisation.docker.enable = true;
+  virtualisation.virtualbox.host.enable = true;
 
   boot.binfmt.emulatedSystems = [ "mips-linux" ];
 
