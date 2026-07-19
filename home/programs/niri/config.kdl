@@ -164,6 +164,11 @@ layout {
     }
 }
 
+cursor {
+    xcursor-theme "breeze_cursors"
+    xcursor-size 24
+}
+
 // Startup processes.
 spawn-at-startup "noctalia"
 

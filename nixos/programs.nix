@@ -42,6 +42,7 @@
     };
   };
 
+  # TODO: reorganize categories
   environment.systemPackages = with pkgs; [
     # Network/Internet
     qbittorrent
@@ -55,6 +56,9 @@
     audacity
     kdePackages.kdenlive
 
+    # Music production
+    reaper
+
     # Social
     vesktop
     thunderbird
@@ -67,7 +71,7 @@
     nomacs
     nautilus
     mcontrolcenter
-    veracrypt
+    kdePackages.breeze
 
     # Cybersec
     autopsy

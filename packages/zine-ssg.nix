@@ -1,37 +1,41 @@
+# packages/zine.nix
 {
   lib,
-  stdenv,
-  fetchFromGitHub,
-  zig,
-  nix-update-script,
+  stdenvNoCC,
+  fetchurl,
 }:
-
-stdenv.mkDerivation (finalAttrs: {
-  pname = "zine-ssg";
+let
   version = "0.11.3";
-  __structuredAttrs = true;
-  strictDeps = true;
+in
+stdenvNoCC.mkDerivation {
+  pname = "zine-ssg";
+  inherit version;
 
-  src = fetchFromGitHub {
-    owner = "kristoff-it";
-    repo = "zine";
-    tag = "v${finalAttrs.version}";
-    hash = "sha256-ALC3vBetIX18eX8r7D/Mts/k7T+QxAGJFHZz2fqwCW0=";
+  src = fetchurl {
+    url = "https://github.com/kristoff-it/zine/releases/download/v${version}/x86_64-linux-musl.tar.xz";
+    hash = "sha256-wl5Tcril0nWfK35YGu+5DIAZ/wBWojCpfv48jtqzvBk=";
   };
 
-  nativeBuildInputs = [
-    zig
-  ];
+  sourceRoot = ".";
 
-  passthru.updateScript = nix-update-script { };
+  dontConfigure = true;
+  dontBuild = true;
+  dontPatchELF = true;
+  dontStrip = true;
+
+  installPhase = ''
+    runHook preInstall
+    install -Dm755 "$(find . -type f -name zine | head -n1)" "$out/bin/zine"
+    runHook postInstall
+  '';
 
   meta = {
-    description = "Fast, Scalable, Flexible Static Site Generator (SSG";
+    description = "Fast, Scalable, Flexible Static Site Generator (SSG)";
     homepage = "https://github.com/kristoff-it/zine";
-    changelog = "https://github.com/kristoff-it/zine/releases/tag/${finalAttrs.src.tag}";
+    changelog = "https://github.com/kristoff-it/zine/releases/tag/v${version}";
     license = lib.licenses.mit;
-    maintainers = with lib.maintainers; [ ];
-    mainProgram = "zine-ssg";
-    inherit (zig.meta) platforms;
+    mainProgram = "zine";
+    sourceProvenance = [ lib.sourceTypes.binaryNativeCode ];
+    platforms = [ "x86_64-linux" ];
   };
-})
+}
