@@ -16,17 +16,9 @@ environment {
 input {
     keyboard {
         xkb {
-            // You can set rules, model, layout, variant and options.
-            // For more information, see xkeyboard-config(7).
-
-            layout "fr"
-            variant "oss"
-            // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
-
-            // NOTE (new): if this xkb section is left empty, niri now fetches
-            // settings from org.freedesktop.locale1 (localectl set-x11-keymap).
+            layout "fr,us"
+            variant "oss,altgr-intl,"
         }
-
         // >>> NEW: enable numlock on startup. Omit to disable it.
         numlock
     }
@@ -319,6 +311,7 @@ binds {
     // AZERTY number row workspace switching.
     Mod+ampersand  { focus-workspace 1; }
     Mod+eacute     { focus-workspace 2; }
+    Mod+2     { focus-workspace 2; }
     Mod+quotedbl   { focus-workspace 3; }
     Mod+apostrophe { focus-workspace 4; }
     Mod+parenleft  { focus-workspace 5; }

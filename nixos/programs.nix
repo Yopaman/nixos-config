@@ -46,6 +46,7 @@
   environment.systemPackages = with pkgs; [
     # Network/Internet
     qbittorrent
+    mullvad-vpn
 
     # Medias
     spotify
@@ -55,9 +56,14 @@
     obs-studio
     audacity
     kdePackages.kdenlive
+    nicotine-plus
+    strawberry
 
     # Music production
     reaper
+
+    # Art
+    blender
 
     # Social
     vesktop
@@ -72,6 +78,7 @@
     nautilus
     mcontrolcenter
     kdePackages.breeze
+    libnotify
 
     # Cybersec
     autopsy
@@ -96,7 +103,7 @@
     smbmap
     inetutils
     openldap
-    netexec
+    # netexec
     kerbrute
     steghide
     stegseek
@@ -120,6 +127,7 @@
     vim
     jetbrains.idea
     blockbench
+    android-studio
 
     libglvnd
     libpulseaudio
@@ -157,6 +165,7 @@
     perl
     nodejs
     pnpm
+    odin
 
     # LSP, linters, ...
     gopls
@@ -173,6 +182,7 @@
     black
     zls
     eslint
+    ols
 
     # Command Line Programs
     (pkgs.callPackage ./../packages/zine-ssg.nix { })

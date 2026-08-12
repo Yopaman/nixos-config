@@ -43,5 +43,7 @@
     };
 
     resolved.enable = true;
+
+    mullvad-vpn.enable = true;
   };
 }

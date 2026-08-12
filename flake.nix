@@ -2,10 +2,10 @@
   description = "Your new nix config";
 
   nixConfig = {
-    extra-substituers = [
+    extra-substituters = [
       "https://noctalia.cachix.org"
     ];
-    extra-trusted-upblic-keys = [
+    extra-trusted-public-keys = [
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
     ];
   };
