@@ -13,7 +13,6 @@
     ./ghostty
     ./zed-editor
     ./niri
-    ./noctalia
   ];
 
 }

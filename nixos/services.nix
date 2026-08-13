@@ -15,10 +15,8 @@
       variant = "oss";
     };
 
-    # Enable the KDE Plasma Desktop Environment.
-    # displayManager.plasma-login-manager.enable = true;
-    displayManager.ly.enable = true;
-    # desktopManager.plasma6.enable = true;
+    # Greeter
+    displayManager.noctalia-greeter.enable = true;
 
     # Sound configuration
     pipewire = {

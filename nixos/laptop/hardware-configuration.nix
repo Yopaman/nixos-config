@@ -25,6 +25,7 @@
   boot.kernelModules = [
     "kvm-intel"
     "msi-ec"
+    "ec_sys"
   ];
   boot.extraModulePackages = with config.boot.kernelPackages; [
     msi-ec

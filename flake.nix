@@ -2,12 +2,6 @@
   description = "Your new nix config";
 
   nixConfig = {
-    extra-substituters = [
-      "https://noctalia.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
-    ];
   };
 
   inputs = {
@@ -25,11 +19,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    noctalia = {
-      url = "github:noctalia-dev/noctalia/cachix";
-      # inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,7 +32,6 @@
       nixpkgs,
       home-manager,
       stylix,
-      noctalia,
       nix-index-database,
       ...
     }@inputs:
@@ -77,7 +65,6 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             stylix.homeModules.stylix
-            noctalia.homeModules.default
             ./home/home.nix
           ];
         };

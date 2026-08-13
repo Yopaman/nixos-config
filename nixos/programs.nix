@@ -40,6 +40,9 @@
       clean.extraArgs = "--keep-since 4d --keep 3";
       flake = "/home/user/nixos-config"; # sets NH_OS_FLAKE variable for you
     };
+
+    # Desktop
+    noctalia.enable = true;
   };
 
   # TODO: reorganize categories
