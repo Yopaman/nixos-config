@@ -9,11 +9,15 @@
       openFirewall = true;
     };
 
+    gvfs.enable = true;
+
     # Configure keymap in X11
     xserver.xkb = {
       layout = "fr";
       variant = "oss";
     };
+
+    upower.enable = true;
 
     # Greeter
     displayManager.noctalia-greeter.enable = true;

@@ -25,6 +25,17 @@
 
     git.enable = true;
 
+    gnome-disks.enable = true;
+
+    thunar = {
+      enable = true;
+      plugins = with pkgs; [
+        thunar-volman
+        thunar-archive-plugin
+        thunar-media-tags-plugin
+      ];
+    };
+
     wireshark = {
       enable = true;
       dumpcap.enable = true;
@@ -50,12 +61,14 @@
     # Network/Internet
     qbittorrent
     mullvad-vpn
+    inputs.helium.packages.${system}.default
 
     # Medias
     spotify
     librespot
     zathura
     mpv
+    vlc
     obs-studio
     audacity
     kdePackages.kdenlive
@@ -131,6 +144,7 @@
     jetbrains.idea
     blockbench
     android-studio
+    gram
 
     libglvnd
     libpulseaudio

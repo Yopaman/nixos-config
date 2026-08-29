@@ -85,6 +85,8 @@
     };
   };
 
+  environment.etc.hosts.enable = false;
+
   virtualisation.libvirtd = {
     enable = true;
 
