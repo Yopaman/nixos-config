@@ -201,6 +201,10 @@
     eslint
     ols
 
+    # AI
+    claude-code
+    codex
+
     # Command Line Programs
     (pkgs.callPackage ./../packages/zine-ssg.nix { })
     fastfetch
@@ -231,7 +235,6 @@
     rar
     rivalcfg
     netbird
-    claude-code
     sqlite
     evtest
   ];

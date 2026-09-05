@@ -7,6 +7,9 @@
       ls = {
         body = "eza --icons";
       };
+      cdtmp = {
+        body = "cd (mktemp -d)";
+      };
     };
   };
 }

@@ -80,6 +80,7 @@
         "libvirtd"
         "vboxusers"
         "input"
+        "storage"
       ];
       shell = pkgs.fish;
     };

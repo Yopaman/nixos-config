@@ -20,7 +20,14 @@
     upower.enable = true;
 
     # Greeter
-    displayManager.noctalia-greeter.enable = true;
+    displayManager.noctalia-greeter = {
+      enable = true;
+      settings = {
+        keyboard = {
+          layout = "fr";
+        };
+      };
+    };
 
     # Sound configuration
     pipewire = {
